@@ -3,16 +3,25 @@ Portfolio website for architect Tobias Bierler
 
 ## Installation
 To work on this project, you will need:
+- Terminal to execute commands
+To test-run the website on your local machine:
+- [PHP](https://php-osx.liip.ch) on your local machine and server (type `php -v` to check if you have it already)
+If you want to make changes to the design and layout of the page:
+- [Node.js](https://nodejs.org/en/) on your machine (type `node -v` to check if you already have it)
+If you also want to contribute to this project and get all latest updates, you will need:
 - A GitHub Account
 - [Git](https://sourceforge.net/projects/git-osx-installer/) on your machine (type `git -v` to check if you have it already)
-- [PHP](https://php-osx.liip.ch) on your local machine and server (type `php -v` to check if you have it already)
-- [Node.js](https://nodejs.org/en/) on your machine (type `node -v` to check if you already have it)
+Otherwise you can just download the website as zip.
 
-Somewhere on your machine create a working directory for your project, eg `my-websites`.
-Open the Terminal and type `cd ` and drag your working directory from the Finder onto the Temrinal window. It should look like `cd Users/yourname/yourpath/my-websites`.
+Somewhere on your machine, create a working directory for your website projects, eg `my-websites`.
+Open the Terminal and type `cd ` and drag your working directory from the Finder onto the Temrinal window. It should look like `cd Users/{yourname}/{yourpath}/my-websites`.
 
-Now type `git clone git@github.com:moritzebeling/tobiasbierler.git` to get the code of this website.
-Type `cd tobiasbierler` to navigate into the website folder.
+Type
+```
+git clone git@github.com:moritzebeling/tobiasbierler.git
+cd tobiasbierler
+```
+to get a clone of the code and navigate inside that project folder.
 
 ## Development
 Run local PHP server
