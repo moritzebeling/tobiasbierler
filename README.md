@@ -5,8 +5,14 @@ Portfolio website for architect Tobias Bierler
 To work on this project, you will need:
 - A GitHub Account
 - [Git](https://sourceforge.net/projects/git-osx-installer/) on your machine (type `git -v` to check if you have it already)
-- [PHP][https://php-osx.liip.ch] on your local machine and server (type `php -v` to check if you have it already)
+- [PHP](https://php-osx.liip.ch) on your local machine and server (type `php -v` to check if you have it already)
 - [Node.js](https://nodejs.org/en/) on your machine (type `node -v` to check if you already have it)
+
+Somewhere on your machine create a working directory for your project, eg `my-websites`.
+Open the Terminal and type `cd ` and drag your working directory from the Finder onto the Temrinal window. It should look like `cd Users/yourname/yourpath/my-websites`.
+
+Now type `git clone git@github.com:moritzebeling/tobiasbierler.git` to get the code of this website.
+Type `cd tobiasbierler` to navigate into the website folder.
 
 ## Development
 Run local PHP server
@@ -17,6 +23,7 @@ php -S localhost:8000
 Run Svelte development
 ```
 cd theme
+npm install
 npm run dev
 ```
 
@@ -40,7 +47,7 @@ Inside the `data.json` you can give a title and some metadata to your page, eg:
 }
 ```
 
-All images will be thumbnailed to a `temporary` directory, that can be removed any time to rebuild all thumbs, which can take a while.
+All images will be thumbnailed to a `temporary` directory, that can be removed any time to rebuild all thumbs, which will take up to a minute.
 
 ## Deployment
 
@@ -49,4 +56,4 @@ Compile Svelte frontend for deployment
 npm run build
 ```
 
-Copy everything to your remote PHP webhost. For just content updates, you will just have to sync the `portfolio` directory.
+Copy everything to your remote PHP webhost, including the hidden `.htaccess` file. For just content updates, you will just have to sync the `portfolio` directory.
