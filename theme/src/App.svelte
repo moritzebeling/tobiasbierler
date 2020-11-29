@@ -1,5 +1,7 @@
 <script>
 
+	import {shuffle} from './utilities/shuffle.js';
+
 	import Header from './components/Header.svelte';
 	import Tile from './components/Tile.svelte';
 
@@ -12,7 +14,7 @@
 				images.push( image );
 			}
 		}
-		return images;
+		return shuffle( images );
 	}
 
 </script>
@@ -34,7 +36,18 @@
 		padding: 1.5rem;
 		display: grid;
 		gap: 1.5rem;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+	}
+
+	li {
+		position: relative;
+	}
+
+	li::before {
+		content: "";
+		padding-bottom: 100%;
+		display: inline-block;
+		vertical-align: top;
 	}
 
 </style>

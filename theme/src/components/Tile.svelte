@@ -6,7 +6,7 @@
 
 </script>
 
-<a href={image.path}>
+<a href="#">
 
     <figure>
         <Img {image} />
@@ -18,6 +18,23 @@
 
     a {
         display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    figure {
+        width: 100%;
+        height: 100%;
+    }
+
+    figure :global( img ) {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
     }
 
 </style>
