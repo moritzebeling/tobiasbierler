@@ -6,7 +6,6 @@
     import Img from '../components/Img.svelte';
 
 	export let data;
-	console.log(data);
 
     function mapIndex( portfolio ){
 		let images = [];
