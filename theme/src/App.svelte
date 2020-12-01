@@ -1,53 +1,29 @@
 <script>
-
-	import {shuffle} from './utilities/shuffle.js';
+	import { Router, Link, Route } from "svelte-routing";
 
 	import Header from './components/Header.svelte';
-	import Tile from './components/Tile.svelte';
+	import Index from "./routes/Index.svelte";
+	import Info from "./routes/Info.svelte";
+	import Project from "./routes/Project.svelte";
 
-	export let data = {};
+	export let data;
 
-	function allImages( projects ){
-		let images = [];
-		for (const project of projects) {
-			for (const image of project.images) {
-				images.push( image );
-			}
-		}
-		return shuffle( images );
-	}
+	export let url = "";
 
 </script>
 
-<Header>{data.title}</Header>
+<Router url="{url}">
 
-<ul>
-	{#each allImages(data.pages) as image}
-		<li>
-			<Tile {image} />
-		</li>
-	{/each}
-</ul>
+	<Header>
+		{data.title} ({url})
+		<Link to="/">Index</Link>
+		<Link to="info">Info</Link>
+	</Header>
 
-<style>
+	<div>
+		<Route path="/" component="{Index}" {data} />
+		<Route path="info" component="{Info}" {data} />
+		<Route path="portfolio/:id" component="{Project}" {data} />
+	</div>
 
-	ul {
-		margin: 2.5rem 0;
-		padding: 1.5rem;
-		display: grid;
-		gap: 1.5rem;
-		grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
-	}
-
-	li {
-		position: relative;
-	}
-
-	li::before {
-		content: "";
-		padding-bottom: 100%;
-		display: inline-block;
-		vertical-align: top;
-	}
-
-</style>
+</Router>
