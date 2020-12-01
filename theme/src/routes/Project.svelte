@@ -8,15 +8,14 @@
 
 <article>
     <header>
-        <h1>{project.year} — {project.title}</h1>
+        <h1>
+            <span>{project.year}</span>
+            <span>{project.title}</span>
+        </h1>
     </header>
-
-
 </article>
 
-
 <style>
-
     header {
         position: fixed;
         bottom: 0;
@@ -24,5 +23,8 @@
         width: 100%;
         padding: 1.5rem;
     }
-
+    h1 span {
+        display: inline-block;
+        margin-right: 1rem;
+    }
 </style>
