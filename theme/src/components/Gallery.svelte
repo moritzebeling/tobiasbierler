@@ -14,14 +14,16 @@
     let galleryIndex = 1;
 
     onMount(() => {
+        let index = new URL(document.URL).hash.replace('#','');
         swipeGallery = new Swipe(container, {
-        draggable: true,
-        continuous: false,
-        callback: function(index, element) {
-            first = index === 0;
-            last = index + 1 === gallery.length;
-            galleryIndex = index + 1;
-        }
+            draggable: true,
+            continuous: false,
+            startSlide: parseInt( index ),
+            callback: function(index, element) {
+                first = index === 0;
+                last = index + 1 === gallery.length;
+                galleryIndex = index + 1;
+            }
         });
     });
 
@@ -33,7 +35,7 @@
         <div class="swipe-wrap">
             {#each gallery as image, i}
 
-                <figure title="{image.project}">
+                <figure title="{image.alt}">
                     <Img srcset={image.srcset} alt="{image.alt}" />
 
                     {#if i > 0}

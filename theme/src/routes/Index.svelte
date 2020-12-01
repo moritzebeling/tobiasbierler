@@ -10,11 +10,12 @@
     function mapIndex( portfolio ){
 		let images = [];
 		for( const project of portfolio.pages ){
-			for( const image of project.images ){
-				images.push({ ...image,
+			for (let i = 0; i < project.images.length; i++){
+				images.push({ ...project.images[i],
 					project: project.title,
-					href: project.url,
+					href: i === 0 ? project.url : project.url + '#' + i
 				});
+
 			}
 		}
 		return shuffle( images );
