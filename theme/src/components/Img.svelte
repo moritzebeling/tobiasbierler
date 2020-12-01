@@ -1,8 +1,8 @@
 <script>
 
-    export let src;
     export let srcset = [];
-    export let alt = "";
+    export let src = srcset['1200'].url;
+    export let alt = '';
 
 </script>
 

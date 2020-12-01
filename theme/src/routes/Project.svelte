@@ -1,18 +1,22 @@
 <script>
 
-    export let project;
+    import Gallery from '../components/Gallery.svelte';
 
-    console.log(project);
+    export let project;
 
 </script>
 
 <article>
+
     <header>
         <h1>
             <span>{project.year}</span>
             <span>{project.title}</span>
         </h1>
     </header>
+
+    <Gallery gallery={project.images} />
+
 </article>
 
 <style>
@@ -22,6 +26,7 @@
         left: 0;
         width: 100%;
         padding: 1.5rem;
+        z-index: 50;
     }
     h1 span {
         display: inline-block;

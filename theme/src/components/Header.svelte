@@ -12,6 +12,7 @@
         left: 0;
         width: 100%;
         padding: 1.5rem;
+        z-index: 100;
     }
 
 </style>

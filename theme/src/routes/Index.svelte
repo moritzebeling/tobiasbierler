@@ -29,7 +29,7 @@
         <li>
             <Link to={image.href}>
 				<figure title="{image.project}">
-					<Img src={image.srcset['600'].url} alt="{image.alt}" />
+					<Img srcset={image.srcset} alt="{image.alt}" />
 				</figure>
 			</Link>
         </li>

@@ -185,7 +185,7 @@ class Thumb {
     public function toArray(): array
     {
         return [
-            'url' => $this->url(),
+            'url' => '/'.$this->url(),
             'width' => $this->width(),
             'height' => $this->height(),
         ];
