@@ -2,7 +2,7 @@
 
 class Content {
 
-    protected $path = 'portfolio';
+    protected $path = 'content';
     protected $content;
 
     public function __construct()
@@ -20,7 +20,7 @@ class Content {
 
     public function toArray(): array
     {
-        return $this->content->toArray();
+        return $this->content->toArray()['pages'][0];
     }
 
 }

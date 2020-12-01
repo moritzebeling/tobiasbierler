@@ -67,7 +67,7 @@ class Thumb {
     {
         $this->url = implode('/',[
             $this->root,
-            $this->image->path(),
+            str_replace( 'content/', '', $this->image->path() ),
             slug( $this->image->name() )
         ]);
 

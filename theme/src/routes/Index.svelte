@@ -6,14 +6,15 @@
     import Img from '../components/Img.svelte';
 
 	export let data;
-	console.log( data );
+	console.log(data);
 
     function mapIndex( portfolio ){
 		let images = [];
 		for( const project of portfolio.pages ){
 			for( const image of project.images ){
 				images.push({ ...image,
-					project: project.title
+					project: project.title,
+					href: project.url,
 				});
 			}
 		}
@@ -21,16 +22,15 @@
 	}
 
 	let index = mapIndex( data );
-	console.log( index );
 
 </script>
 
 <ul>
     {#each index as image}
         <li>
-            <Link to={image.path}>
+            <Link to={image.href}>
 				<figure title="{image.project}">
-					<Img {...image} />
+					<Img src={image.srcset['600'].url} alt="{image.alt}" />
 				</figure>
 			</Link>
         </li>
