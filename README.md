@@ -5,7 +5,8 @@ Portfolio website for architect Tobias Bierler
 To work on this project, you will need:
 - The Terminal to execute commands
 - [PHP](https://php-osx.liip.ch) to serve the website or test-run it on your local machine (type `php -v` to check if you have it already).
-- [Node.js](https://nodejs.org/en/) if you want to make changes to the design and layout of the page (type `node -v` to check if you already have it).
+- [Node.js + NPM](https://nodejs.org/en/) if you want to make changes to the design and layout of the page (type `node -v` to check if you already have it).
+
 If you also want to contribute to this project and get all latest updates, you will need:
 - A GitHub Account
 - [Git](https://sourceforge.net/projects/git-osx-installer/) on your machine (type `git -v` to check if you have it already)
@@ -26,7 +27,7 @@ Run local PHP server
 php -S localhost:8000
 ```
 
-Run Svelte development
+Run Svelte development via npm
 ```
 cd theme
 npm install
