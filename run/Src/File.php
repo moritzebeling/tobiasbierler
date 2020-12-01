@@ -58,11 +58,10 @@ class File {
 
     public function toArray(): array {
         return [
-            'url' => $this->url(),
+            // 'src' => str_replace( 'content/', '', $this->url() ),
             'path' => $this->path(),
             'filename' => $this->filename(),
-            'title' => $this->title(),
-            'extension' => $this->extension(),
+            'alt' => $this->title()
         ];
     }
 

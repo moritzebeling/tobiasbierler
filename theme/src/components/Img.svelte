@@ -1,7 +1,9 @@
 <script>
 
-    export let image;
+    export let src;
+    export let srcset = [];
+    export let alt = "";
 
 </script>
 
-<img src={image.url} alt="{image.title}" />
+<img {src} {alt} />

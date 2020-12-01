@@ -93,6 +93,7 @@ class Page {
         }
 
         return array_merge( $this->data, [
+            'url' => str_replace( 'content/', '', $this->path ),
             'pages' => $pages,
             'images' => $images,
         ]);
