@@ -35,16 +35,18 @@ npm run dev
 ```
 
 ## Content
-Build your page structure inside the `portfolio` directory, eg:
+Build your page structure inside the `content` directory, eg:
 ```
-portfolio
-  - project-1
+content
+  portfolio
     data.json
-    image-1.jpg
-    image-2.jpg
-  - project-2
-    data.json
-    image-3.jpg
+    - project-1
+      data.json
+      image-1.jpg
+      image-2.jpg
+    - project-2
+      data.json
+      image-3.jpg
 ```
 Inside the `data.json` you can give a title and some metadata to your page, eg:
 ```json
@@ -54,7 +56,8 @@ Inside the `data.json` you can give a title and some metadata to your page, eg:
 }
 ```
 
-All images will be thumbnailed to a `temporary` directory, that can be removed any time to rebuild all thumbs, which will take up to a minute.
+## Media
+All images will be thumbnailed to a `temporary` directory, that can be removed any time to rebuild all thumbs, which will take up to a minute. The image sizes are `600`, `1200`, `2000` px wide.
 
 ## Deployment
 
