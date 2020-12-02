@@ -6,4 +6,4 @@
 
 </script>
 
-<img {src} {alt} />
+<img {src} {alt} data-sizes="auto" class="lazyload" />
