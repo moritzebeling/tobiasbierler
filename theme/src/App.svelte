@@ -7,6 +7,7 @@
 	import Project from "./routes/Project.svelte";
 
 	export let data;
+	console.log( data );
 
 	function getProject( projects, url ){
 		let project;

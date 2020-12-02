@@ -6,7 +6,7 @@ class Image extends File {
     {
         $srcset = [];
         foreach( $sizes as $size ){
-            $srcset[$size] = (new Thumb( $this, $size ))->toArray();
+            $srcset[] = (new Thumb( $this, $size ))->toArray();
         }
         return $srcset;
     }
