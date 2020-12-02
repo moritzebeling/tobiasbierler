@@ -30,7 +30,6 @@
 
 	<Header>
 		<Link to="/">{data.title}</Link>
-		<Link to="info">Info</Link>
 	</Header>
 
 	<div>
