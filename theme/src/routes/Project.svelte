@@ -44,7 +44,10 @@
                 {#each project.images as image, i}
 
                     <figure title="{image.alt}">
-                        <Img srcset={image.srcset} alt="{image.alt}" />
+
+                        <div class="square">
+                            <Img srcset={image.srcset} alt="{image.alt}" />
+                        </div>
 
                         {#if i > 0}
                             <button title="Previous slide" class="prev" on:click={swipeGallery.prev} />
@@ -99,14 +102,31 @@
         height: 100vh;
         width: 100vw;
         float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .square {
+        width: 100vh;
+        height: 100vh;
         padding: 4rem 1.5rem;
     }
+
+    @media all and (orientation: portrait) {
+        .square {
+            width: 100vw;
+            height: 100vw;
+        }
+    }
+
     figure :global( img ) {
         width: 100%;
         height: 100%;
         object-fit: contain;
         object-position: center;
     }
+
     button {
         position: absolute;
         top: 0;
