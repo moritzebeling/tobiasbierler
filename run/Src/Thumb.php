@@ -88,7 +88,7 @@ class Thumb {
 
     public function directory()
     {
-        $this->directory = $this->root . DS . $this->image->path();
+        $this->directory = $this->root . DS . str_replace( 'content/', '', $this->image->path() );
         if( !is_dir( $this->directory ) ){
             mkdir( $this->directory, 0777, true);
         }
