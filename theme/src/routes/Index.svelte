@@ -1,27 +1,13 @@
 <script>
 
 	import { Link } from "svelte-routing";
-	import { shuffle } from '../utilities/shuffle.js';
+	import { imageIndex } from '../utilities/imageIndex.js';
 
     import Img from '../components/Img.svelte';
 
 	export let data;
 
-    function mapIndex( portfolio ){
-		let images = [];
-		for( const project of portfolio.pages ){
-			for (let i = 0; i < project.images.length; i++){
-				images.push({ ...project.images[i],
-					project: project.title,
-					href: i === 0 ? project.url : project.url + '#' + i
-				});
-
-			}
-		}
-		return shuffle( images );
-	}
-
-	let index = mapIndex( data );
+	let index = imageIndex( data );
 
 </script>
 
@@ -29,7 +15,7 @@
     {#each index as image}
         <li>
             <Link to={image.href}>
-				<figure title="{image.project}">
+				<figure title="{image.project} {image.alt}">
 					<Img srcset={image.srcset} alt="{image.alt}" />
 				</figure>
 			</Link>

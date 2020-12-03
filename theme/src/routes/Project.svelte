@@ -23,6 +23,7 @@
                 index = i;
             }
         });
+
     });
 
 </script>
@@ -50,10 +51,10 @@
                         </div>
 
                         {#if i > 0}
-                            <button title="Previous slide" class="prev" on:click={swipeGallery.prev} />
+                            <button title="Previous image" class="prev" on:click={swipeGallery.prev} />
                         {/if}
                         {#if i + 1 < project.images.length}
-                            <button title="Next slide" class="next" on:click={swipeGallery.next} />
+                            <button title="Next image" class="next" on:click={swipeGallery.next} />
                         {/if}
 
                     </figure>
@@ -67,6 +68,7 @@
 </article>
 
 <style>
+
     header {
         position: fixed;
         bottom: 0;
@@ -85,6 +87,7 @@
         display: flex;
         flex-direction: column;
     }
+
     .swipe {
         overflow: hidden;
         visibility: hidden;
@@ -97,6 +100,7 @@
         position: relative;
         height: 100%;
     }
+
     figure {
         position: relative;
         height: 100vh;
