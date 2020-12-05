@@ -1,7 +1,6 @@
 <?php
 
 require_once 'run/start.php';
-
 $content = new Content();
 
 $themeDirectory = '/theme/public';

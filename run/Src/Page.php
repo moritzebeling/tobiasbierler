@@ -19,6 +19,10 @@ class Page {
 
     }
 
+    public function path(): string {
+        return $this->path;
+    }
+
     public function data(): array
     {
 

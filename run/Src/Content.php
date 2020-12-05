@@ -15,6 +15,7 @@ class Content {
     public function content(){
 
         $this->content = new Page( $this->path );
+        return $this->content;
 
     }
 

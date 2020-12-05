@@ -2,19 +2,33 @@ AddDefaultCharset UTF-8
 Options -Indexes
 DefaultLanguage en
 
-<IfModule mod_rewrite.c>
+FallbackResource /index.php
 
-  FallbackResource /index.php
+<IfModule mod_rewrite.c>
 
   RewriteEngine on
   RewriteBase /
-  # RewriteRule ^.+$ /index.php
+
+  RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+  # remove www and add https
+  RewriteCond %{HTTP_HOST} ^www.tobiasbierler.de$ [NC]
+  RewriteRule ^(.*)$ https://tobiasbierler.de/$1 [R=301,L]
+
+  # force https
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^.*$ /index.php [L,QSA]
 
 </IfModule>
 
 <IfModule mod_mime.c>
   AddType text/html .html
   AddType application/json .json
+  AddType application/xml .xml
 
   AddType text/css .css
   AddType text/javascript .js
@@ -50,6 +64,7 @@ DefaultLanguage en
 
   ExpiresByType text/html "access 10 minutes"
   ExpiresByType application/json "access 10 minutes"
+  ExpiresByType application/xml "access 10 minutes"
 
   ExpiresByType text/css "access 10 minutes"
   ExpiresByType text/javascript "access 10 minutes"
