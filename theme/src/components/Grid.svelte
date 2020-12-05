@@ -1,22 +1,13 @@
 <script>
 
-    import { Link } from "svelte-routing";
-    import Img from '../components/Img.svelte';
-
-	export let images;
+	export let items;
 
 </script>
 
 <ul>
-    {#each images as image}
+    {#each items as item, i}
         <li>
-            <Link to={image.href}>
-				<figure title="{image.project} {image.alt}">
-
-					<Img srcset={image.srcset} alt="{image.alt}" />
-
-				</figure>
-			</Link>
+			<slot prop={[item, i]}></slot>
         </li>
     {/each}
 </ul>
@@ -67,17 +58,5 @@
         width: 100%;
         height: 100%;
     }
-
-    figure {
-        width: 100%;
-        height: 100%;
-    }
-
-    figure :global( img ) {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
-	}
 
 </style>

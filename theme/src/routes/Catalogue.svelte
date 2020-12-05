@@ -1,6 +1,8 @@
 <script>
 
 	import { Link } from "svelte-routing";
+
+    import Grid from '../components/Grid.svelte';
     import Img from '../components/Img.svelte';
 
 	export let data;
@@ -9,8 +11,8 @@
 
 <div class="wrapper">
 	{#each data.pages as project}
-
 		<article>
+
 			<header>
 				<Link to={project.url}>
 					<h2>
@@ -20,21 +22,16 @@
 				</Link>
 			</header>
 
-			<ul class="gallery">
-				{#each project.images as image, i}
-					<li>
-						<Link to="{project.url}#{i}">
-							<figure title="{image.alt}">
-								<Img srcset={image.srcset} alt="{image.alt}" />
-								<figcaption>{image.alt}</figcaption>
-							</figure>
-						</Link>
-					</li>
-				{/each}
-			</ul>
+			<Grid items={project.images} let:prop={[item,i]}>
+				<Link to="{project.url}#{i}">
+					<figure title="{item.alt}">
+						<Img srcset={item.srcset} alt="{item.alt}" />
+						<figcaption>{item.alt}</figcaption>
+					</figure>
+				</Link>
+			</Grid>
 
 		</article>
-
 	{/each}
 </div>
 
@@ -53,43 +50,16 @@
 		margin-bottom: 1rem;
 	}
 
-	.gallery {
-		display: grid;
-		gap: 4vw;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-	}
-
-	.gallery > li {
-		position: relative;
-		margin-bottom: 1rem;
-	}
-
-	.gallery > li:before {
-		content: "";
-		padding-bottom: 100%;
-		display: inline-block;
-		vertical-align: top;
-	}
-
-	li :global( figure ) {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
 	h2 span {
         display: inline-block;
         margin-right: 1rem;
     }
 
-	li :global(a) {
-        display: block;
-    }
-
     figure {
+		display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
     }
@@ -103,7 +73,7 @@
 
 	figcaption {
 		font-size: 0.6rem;
-		margin-top: 0.7em;
+		margin-top: 1em;
 		text-align: center;
 	}
 
