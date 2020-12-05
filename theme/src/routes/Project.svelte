@@ -1,6 +1,7 @@
 <script>
 
     import { onMount } from "svelte";
+    import { Link } from "svelte-routing";
     import Swipe from "swipejs";
     import Img from '../components/Img.svelte';
 
@@ -50,10 +51,19 @@
                             <Img srcset={image.srcset} alt="{image.alt}" />
                         </div>
 
-                        {#if i > 0}
+                        {#if i === 0}
+                            <Link to={'/'}>
+                                <button title="Previous project" class="prev link"></button>
+                            </Link>
+                        {:else}
                             <button title="Previous image" class="prev" on:click={swipeGallery.prev} />
                         {/if}
-                        {#if i + 1 < project.images.length}
+
+                        {#if i + 1 === project.images.length}
+                            <Link to={'/'}>
+                                <button title="Next project" class="next link"></button>
+                            </Link>
+                        {:else}
                             <button title="Next image" class="next" on:click={swipeGallery.next} />
                         {/if}
 
@@ -145,5 +155,9 @@
     button.next {
         left: 50%;
         cursor: e-resize;
+    }
+
+    button.link {
+        cursor: pointer !important;
     }
 </style>
