@@ -45,8 +45,12 @@ class File {
         $path = $this->path() . DS . $this->name() . '.json';
         if( file_exists( $path ) ){
 
-            $string = file_get_contents( $path );
-            $this->data = json_decode( $string, TRUE );
+            $json = file_get_contents( $path );
+            $json = json_decode( $json, TRUE );
+
+            if( is_array( $json ) ){
+                $this->data = $json;
+            }
 
         }
 

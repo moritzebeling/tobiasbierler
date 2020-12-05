@@ -75,6 +75,8 @@ inside that json you can gice a title to that file:
     "title": "This image shows a beautiful building"
 }
 ```
+Be careful to not add a comma after the last entry.
+
 Otherwise, the image title will be generated from that filename, eg:
 - `image.jpg` -> Image
 - `1_image.jpg` -> Image
