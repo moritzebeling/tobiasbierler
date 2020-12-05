@@ -80,10 +80,4 @@
         object-position: center;
 	}
 
-	figcaption {
-		font-size: 0.6rem;
-		margin-top: 0.5em;
-		text-align: center;
-	}
-
 </style>

@@ -33,10 +33,13 @@
 
     <header>
         <h1>
-            <span>{project.year}</span>
+            <span class="year">{project.year}</span>
             <span>{project.title}</span>
             <span>{project.images[index].alt}</span>
         </h1>
+        <div class="index">
+            <span>{index + 1}</span>/<span>{project.images.length}</span>
+        </div>
     </header>
 
     <section>
@@ -86,10 +89,19 @@
         width: 100%;
         padding: 1.5rem;
         z-index: 50;
+        display: flex;
+        justify-content: space-between;
     }
     h1 span {
         display: inline-block;
-        margin-right: 1rem;
+        margin-right: 0.7em;
+    }
+    .year, .index {
+        letter-spacing: 0.02em;
+    }
+    .index span {
+        display: inline-block;
+        margin: 0 0.1em;
     }
     section {
         height: 100vh;
