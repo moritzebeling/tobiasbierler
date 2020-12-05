@@ -81,8 +81,8 @@ Otherwise, the image title will be generated from that filename, eg:
 - `image.jpg` -> Image
 - `1_image.jpg` -> Image
 - `2-image.jpg` -> 2 Image
-- `3_a-very-beatiful-image-from_Germany.jpg` -> A very beautiful image from Germany
-- `a-very-beatiful-image-from_Germany.jpg` -> Germany
+- `3_a-very-beatiful-image-from_basel.jpg` -> A very beautiful image from Basel
+- `a-very-beatiful-image-from_basel.jpg` -> Basel
 
 ## Media
 All images will be thumbnailed to a `temporary` directory, that can be removed any time to rebuild all thumbs, which will take up to a minute. The image sizes are `600`, `1200`, `2000` px wide.
@@ -94,4 +94,4 @@ Compile Svelte frontend for deployment
 npm run build
 ```
 
-Copy everything to your remote PHP webhost, including the hidden `.htaccess` file. For just content updates, you will just have to sync the `portfolio` directory.
+Copy everything to your remote PHP webhost, including the hidden `.htaccess` file. For just content updates, you will just have to sync the `content` directory.
