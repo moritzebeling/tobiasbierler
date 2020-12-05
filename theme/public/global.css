@@ -164,6 +164,10 @@ body {
 	letter-spacing: 0.02em;
 }
 
+li > a {
+	display: block;
+}
+
 .lazyload,
 .lazyloading {
 	opacity: 0;
