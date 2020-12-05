@@ -55,7 +55,7 @@
 
 	.gallery {
 		display: grid;
-		gap: 1.5rem;
+		gap: 4vw;
 		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 	}
 
@@ -103,7 +103,7 @@
 
 	figcaption {
 		font-size: 0.6rem;
-		margin-top: 0.5em;
+		margin-top: 0.7em;
 		text-align: center;
 	}
 
