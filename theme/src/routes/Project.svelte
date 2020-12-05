@@ -12,8 +12,6 @@
 
     let index = parseInt( new URL(document.URL).hash.replace('#','') ) || 0;
 
-    let imagetitle = '';
-
     onMount(() => {
 
         swipeGallery = new Swipe(container, {

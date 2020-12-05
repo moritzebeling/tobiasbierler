@@ -1,6 +1,8 @@
 <script>
 	import { Router, Link, Route } from "svelte-routing";
 
+	import {getProject} from './utilities/getProject.js';
+
 	import Header from './components/Header.svelte';
 	import Index from "./routes/Index.svelte";
 	import Info from "./routes/Info.svelte";
@@ -9,19 +11,6 @@
 
 	export let data;
 	console.log( data );
-
-	function getProject( projects, url ){
-		let project;
-		for (let i = 0; i < projects.length; i++) {
-			if( projects[i].url === url ){
-				project = projects[i];
-				project['prev'] = i > 0 ? projects[i-1] : projects[projects.length-1];
-				project['next'] = i < projects.length-1 ? projects[i+1] : projects[0];
-				break;
-			}
-		}
-		return project;
-	}
 
 	export let url = "";
 
