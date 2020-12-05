@@ -19,7 +19,11 @@ Type
 git clone git@github.com:moritzebeling/tobiasbierler.git
 cd tobiasbierler
 ```
-to get a clone of the code and navigate inside that project folder.
+to get a clone of the code and navigate inside that project folder and
+```
+git pull origin main
+```
+to update to the latest version.
 
 ## Development
 Run local PHP server
@@ -34,6 +38,8 @@ npm install
 npm run dev
 ```
 
+
+
 ## Content
 Build your page structure inside the `content` directory, eg:
 ```
@@ -44,17 +50,37 @@ content
       data.json
       image-1.jpg
       image-2.jpg
+      image-2.json
     - project-2
       data.json
       image-3.jpg
 ```
+
 Inside the `data.json` you can give a title and some metadata to your page, eg:
 ```json
 {
     "title": "My page",
-    "year": 2019,
+    "year": 2019
 }
 ```
+
+You can also provide additional info to files, by adding a json file that has the same filename as the file it desribes, eg:
+```
+image-2.jpg
+image-2.json
+```
+inside that json you can gice a title to that file:
+```json
+{
+    "title": "This image shows a beautiful building"
+}
+```
+Otherwise, the image title will be generated from that filename, eg:
+- `image.jpg` -> Image
+- `1_image.jpg` -> Image
+- `2-image.jpg` -> 2 Image
+- `3_a-very-beatiful-image-from_Germany.jpg` -> A very beautiful image from Germany
+- `a-very-beatiful-image-from_Germany.jpg` -> Germany
 
 ## Media
 All images will be thumbnailed to a `temporary` directory, that can be removed any time to rebuild all thumbs, which will take up to a minute. The image sizes are `600`, `1200`, `2000` px wide.

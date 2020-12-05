@@ -23,6 +23,8 @@ class File {
         $this->extension = array_pop( $parts );
         $this->name = implode( '.', $parts );
 
+        $this->data();
+
     }
 
     public function url(): string {
@@ -37,6 +39,20 @@ class File {
         return $this->name;
     }
 
+    public function data(): array {
+        $this->data = [];
+
+        $path = $this->path() . DS . $this->name() . '.json';
+        if( file_exists( $path ) ){
+
+            $string = file_get_contents( $path );
+            $this->data = json_decode( $string, TRUE );
+
+        }
+
+        return $this->data;
+    }
+
     public function filename(): string {
         return $this->filename;
     }
@@ -46,6 +62,11 @@ class File {
     }
 
     public function title(): string {
+
+        if( array_key_exists( 'title', $this->data ) ){
+            return $this->data['title'];
+        }
+
         $parts = explode( '_', $this->name() );
         if( count( $parts ) > 1 ){
             array_shift( $parts );
@@ -57,12 +78,12 @@ class File {
     }
 
     public function toArray(): array {
-        return [
+        return array_merge( $this->data, [
             // 'src' => str_replace( 'content/', '', $this->url() ),
             'path' => $this->path(),
             'filename' => $this->filename(),
             'alt' => $this->title()
-        ];
+        ]);
     }
 
 }
