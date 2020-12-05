@@ -8,6 +8,6 @@ DefaultLanguage en
 
   RewriteEngine on
   RewriteBase /
-  RewriteRule ^.+$ /index.php
+  # RewriteRule ^.+$ /index.php
 
 </IfModule>
