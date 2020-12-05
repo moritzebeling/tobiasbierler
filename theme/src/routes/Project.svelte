@@ -1,29 +1,11 @@
 <script>
 
-    import { onMount } from "svelte";
-    import { Link } from "svelte-routing";
-    import Swipe from "swipejs";
     import Img from '../components/Img.svelte';
+    import Gallery from '../components/Gallery.svelte';
 
     export let project;
 
-    let container;
-    let swipeGallery;
-
     let index = parseInt( new URL(document.URL).hash.replace('#','') ) || 0;
-
-    onMount(() => {
-
-        swipeGallery = new Swipe(container, {
-            draggable: true,
-            continuous: false,
-            startSlide: index,
-            callback: function(i, element) {
-                index = i;
-            }
-        });
-
-    });
 
 </script>
 
@@ -41,39 +23,13 @@
     </header>
 
     <section>
+        <Gallery images={project.images} let:prop={[image,i]} start={index} on:slide={(e) => index = e.detail.index}>
 
-        <div class="swipe" bind:this={container}>
-            <div class="swipe-wrap">
-                {#each project.images as image, i}
-
-                    <figure title="{image.alt}">
-
-                        <div class="square">
-                            <Img srcset={image.srcset} alt="{image.alt}" />
-                        </div>
-
-                        {#if i === 0}
-                            <Link to={'/'}>
-                                <button title="Previous project" class="prev link"></button>
-                            </Link>
-                        {:else}
-                            <button title="Previous image" class="prev" on:click={swipeGallery.prev} />
-                        {/if}
-
-                        {#if i + 1 === project.images.length}
-                            <Link to={'/'}>
-                                <button title="Next project" class="next link"></button>
-                            </Link>
-                        {:else}
-                            <button title="Next image" class="next" on:click={swipeGallery.next} />
-                        {/if}
-
-                    </figure>
-
-                {/each}
+            <div class="square">
+                <Img srcset={image.srcset} alt="{image.alt}" />
             </div>
-        </div>
 
+        </Gallery>
     </section>
 
 </article>
@@ -108,29 +64,6 @@
         flex-direction: column;
     }
 
-    .swipe {
-        overflow: hidden;
-        visibility: hidden;
-        position: relative;
-        height: 100%;
-        width: 100vw;
-    }
-    .swipe-wrap {
-        overflow: hidden;
-        position: relative;
-        height: 100%;
-    }
-
-    figure {
-        position: relative;
-        height: 100vh;
-        width: 100vw;
-        float: left;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
     .square {
         width: 100vh;
         height: 100vh;
@@ -144,30 +77,10 @@
         }
     }
 
-    figure :global( img ) {
+    :global( img ) {
         width: 100%;
         height: 100%;
         object-fit: contain;
         object-position: center;
-    }
-
-    button {
-        position: absolute;
-        top: 0;
-        width: 50%;
-        height: 100%;
-        z-index: 5;
-    }
-    button.prev {
-        left: 0;
-        cursor: w-resize;
-    }
-    button.next {
-        left: 50%;
-        cursor: e-resize;
-    }
-
-    button.link {
-        cursor: pointer !important;
     }
 </style>
