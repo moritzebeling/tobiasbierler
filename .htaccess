@@ -7,7 +7,7 @@ DefaultLanguage en
   FallbackResource /index.php
 
   RewriteEngine on
-  # RewriteBase /
+  RewriteBase /
   RewriteRule ^.+$ /index.php
 
 </IfModule>
