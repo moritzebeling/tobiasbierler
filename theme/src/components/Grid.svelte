@@ -21,18 +21,21 @@
 		gap: 6vw;
 		grid-template-columns: repeat( auto-fit, minmax(130px, 1fr) );
 	}
+
 	@media only screen and (min-width: 920px) {
 		ul {
 			gap: 5vw;
 			grid-template-columns: repeat( auto-fit, minmax(180px, 1fr) );
 		}
 	}
+
 	@media only screen and (min-width: 1500px) {
 		ul {
 			gap: 4vw;
 			grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
 		}
 	}
+
 	@media only screen and (min-width: 1900px) {
 		ul {
 			gap: 3vw;

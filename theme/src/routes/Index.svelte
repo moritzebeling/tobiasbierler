@@ -2,13 +2,13 @@
 
 	import { Link } from "svelte-routing";
 	import { imageIndex } from '../utilities/imageIndex.js';
-
     import Grid from '../components/Grid.svelte';
     import Img from '../components/Img.svelte';
 
 	export let data;
+    let images = imageIndex( data );
 
-	let images = imageIndex( data );
+    console.log( images );
 
 </script>
 

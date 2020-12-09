@@ -7,8 +7,10 @@
     export let project;
     export let index = 1;
 
+    console.log( project );
+
     /*
-    rerender gallery component when new project is shown
+    * rerender gallery component when new project is shown
     */
     let showGallery = false;
     $: url = project.url;
@@ -25,10 +27,6 @@
 <article>
 
     <header>
-        <div class="controls">
-            <Link to={project.prev}>Prev</Link>
-            <Link to={project.next}>Next</Link>
-        </div>
         <h1>
             <span class="year">{project.year}</span>
             <span>{project.title}</span>
@@ -65,17 +63,21 @@
         display: flex;
         justify-content: space-between;
     }
+
     h1 span {
         display: inline-block;
         margin-right: 0.7em;
     }
+
     .year, .index {
         letter-spacing: 0.02em;
     }
+
     .index span {
         display: inline-block;
         margin: 0 0.1em;
     }
+
     section {
         height: 100vh;
         width: 100vw;

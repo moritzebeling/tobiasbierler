@@ -1,20 +1,16 @@
 <script>
 
     import { onMount, onDestroy, createEventDispatcher } from "svelte";
-    import { navigate } from "svelte-routing";
+    import { Link, navigate } from "svelte-routing";
 	import Swipe from "swipejs";
-
-	const dispatch = createEventDispatcher();
-
-	import { Link } from "svelte-routing";
 
 	export let images;
 	export let prev;
 	export let next;
     export let index = 1;
-
 	let container;
     let swipeGallery;
+    const dispatch = createEventDispatcher();
 
 	onMount(() => {
 
@@ -83,11 +79,13 @@
         height: 100%;
         width: 100vw;
     }
+
     .swipe-wrap {
         overflow: hidden;
         position: relative;
         height: 100%;
     }
+
 	figure {
         position: relative;
         height: 100vh;
@@ -105,10 +103,12 @@
         height: 100%;
         z-index: 5;
     }
+
     .button.prev {
         left: 0;
         cursor: w-resize;
     }
+
     .button.next {
         left: 50%;
         cursor: e-resize;

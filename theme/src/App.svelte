@@ -1,8 +1,7 @@
 <script>
+
 	import { Router, Link, Route } from "svelte-routing";
-
 	import {getProject} from './utilities/getProject.js';
-
 	import Header from './components/Header.svelte';
 	import Index from "./routes/Index.svelte";
 	import Info from "./routes/Info.svelte";
@@ -10,8 +9,6 @@
 	import Project from "./routes/Project.svelte";
 
 	export let data;
-	console.log( data );
-
 	export let url = "";
 
 </script>

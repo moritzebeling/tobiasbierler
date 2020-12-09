@@ -1,11 +1,12 @@
 <script>
 
 	import { Link } from "svelte-routing";
-
     import Grid from '../components/Grid.svelte';
     import Img from '../components/Img.svelte';
 
 	export let data;
+
+	console.log( data );
 
 </script>
 
@@ -37,7 +38,6 @@
 
 <style>
 
-
 	.wrapper {
 		margin: 2.5rem 0;
 		padding: 1.5rem;
@@ -46,6 +46,7 @@
 	article {
 		margin-bottom: 8rem;
 	}
+
 	header {
 		margin-bottom: 1rem;
 	}
