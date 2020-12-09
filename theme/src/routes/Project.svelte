@@ -1,29 +1,35 @@
 <script>
 
+    import { Route, Link } from "svelte-routing";
     import Img from '../components/Img.svelte';
     import Gallery from '../components/Gallery.svelte';
 
     export let project;
+    export let index = 1;
 
-    let index = parseInt( new URL(document.URL).hash.replace('#','') ) || 0;
+    console.log( index );
 
 </script>
 
 <article>
 
     <header>
+        <div class="controls">
+            <Link to={project.prev}>Prev</Link>
+            <Link to={project.next}>Next</Link>
+        </div>
         <h1>
             <span class="year">{project.year}</span>
             <span>{project.title}</span>
-            <span>{project.images[index].alt}</span>
+            <span>{project.images[index-1].alt}</span>
         </h1>
         <div class="index">
-            <span>{index + 1}</span>/<span>{project.images.length}</span>
+            <span>{index}</span>/<span>{project.images.length}</span>
         </div>
     </header>
 
     <section>
-        <Gallery images={project.images} let:prop={[image,i]} start={index} on:slide={(e) => index = e.detail.index}>
+        <Gallery images={project.images} let:prop={[image,i]} {index} on:slide={(e) => index = e.detail.index}>
 
             <div class="square">
                 <Img srcset={image.srcset} alt="{image.alt}" />

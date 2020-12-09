@@ -1,9 +1,8 @@
 function getPrev( project ){
-    let i = project.images.length - 1;
-    return project.url + '#' + i;
+    return project.url + '/' + project.images.length;
 }
 function getNext( project ){
-    return project.url;
+    return project.url + '/1';
 }
 
 export function getProject( projects, url ){

@@ -23,7 +23,7 @@
 			</header>
 
 			<Grid items={project.images} let:prop={[item,i]}>
-				<Link to="{project.url}#{i}">
+				<Link to="{project.url}/{i+1}">
 					<figure title="{item.alt}">
 						<Img srcset={item.srcset} alt="{item.alt}" />
 						<figcaption>{item.alt}</figcaption>

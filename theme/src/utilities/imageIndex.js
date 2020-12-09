@@ -12,9 +12,8 @@ export function imageIndex( portfolio ){
         for (let i = 0; i < project.images.length; i++){
             images.push({ ...project.images[i],
                 project: project.title,
-                href: i === 0 ? project.url : project.url + '#' + i
+                href: project.url + '/' + (i+1)
             });
-
         }
     }
     return shuffle( images );

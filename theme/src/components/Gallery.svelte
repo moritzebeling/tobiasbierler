@@ -9,9 +9,7 @@
 	import { Link } from "svelte-routing";
 
 	export let images;
-	export let start = 0;
-
-	let index = start;
+    export let index = 1;
 
 	let container;
     let swipeGallery;
@@ -21,11 +19,11 @@
         swipeGallery = new Swipe(container, {
             draggable: true,
             continuous: false,
-            startSlide: index,
+            startSlide: index - 1,
             callback: function(i, element) {
-				index = i;
+				index = i + 1;
 				dispatch('slide', {
-					index: i
+					index: i + 1
 				});
             }
         });
@@ -39,6 +37,8 @@
 		{#each images as image, i}
 
 			<figure title="{image.alt}">
+
+                {images.length}
 
 				<slot prop={[image, i]}></slot>
 

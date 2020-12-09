@@ -26,8 +26,8 @@
 		<Route path="/" component="{Index}" {data} />
 		<Route path="info" component="{Info}" {data} />
 		<Route path="catalogue" component="{Catalogue}" {data} />
-		<Route path="portfolio/:id" let:params>
-			<Project project={getProject( data.pages, 'portfolio/' + params.id )} />
+		<Route path="portfolio/:id/:index" let:params>
+			<Project project={getProject( data.pages, 'portfolio/' + params.id )} index={params.index} />
 		</Route>
 	</main>
 
