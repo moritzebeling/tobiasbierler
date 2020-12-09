@@ -1,7 +1,7 @@
 <script>
 
-	import { createEventDispatcher } from 'svelte';
-	import { onMount, onDestroy } from "svelte";
+    import { onMount, onDestroy, createEventDispatcher } from "svelte";
+    import { navigate } from "svelte-routing";
 	import Swipe from "swipejs";
 
 	const dispatch = createEventDispatcher();
@@ -21,9 +21,11 @@
             continuous: false,
             startSlide: index - 1,
             callback: function(i, element) {
-				index = i + 1;
+                let n = i + 1;
+                index = n;
+                navigate(n, { replace: true });
 				dispatch('slide', {
-					index: i + 1
+					index: n
 				});
             }
         });
