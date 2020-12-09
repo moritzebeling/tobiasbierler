@@ -1,7 +1,7 @@
 <script>
 
 	import { createEventDispatcher } from 'svelte';
-	import { onMount } from "svelte";
+	import { onMount, onDestroy } from "svelte";
 	import Swipe from "swipejs";
 
 	const dispatch = createEventDispatcher();
@@ -27,6 +27,13 @@
 				});
             }
         });
+
+    });
+
+    onDestroy(() => {
+
+        swipeGallery.kill();
+        swipeGallery = undefined;
 
     });
 
