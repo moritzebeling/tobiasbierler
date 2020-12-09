@@ -18,6 +18,7 @@
 
         swipeGallery = new Swipe(container, {
             draggable: true,
+            speed: 400,
             continuous: false,
             startSlide: index - 1,
             callback: function(i, element) {
@@ -46,8 +47,6 @@
 		{#each images as image, i}
 
 			<figure title="{image.alt}">
-
-                {images.length}
 
 				<slot prop={[image, i]}></slot>
 

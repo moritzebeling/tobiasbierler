@@ -47,7 +47,7 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        padding: 1.5rem;
+        padding: 1rem;
         z-index: 50;
         display: flex;
         justify-content: space-between;
