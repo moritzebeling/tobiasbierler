@@ -9,6 +9,8 @@
 	import { Link } from "svelte-routing";
 
 	export let images;
+	export let prev;
+	export let next;
     export let index = 1;
 
 	let container;
@@ -51,19 +53,19 @@
 				<slot prop={[image, i]}></slot>
 
 				{#if i === 0}
-					<Link to={'/'}>
-						<button title="Previous project" class="prev link"></button>
+					<Link to={prev}>
+						<div title="Previous project" class="button prev link"></div>
 					</Link>
 				{:else}
-					<button title="Previous image" class="prev" on:click={swipeGallery.prev} />
+					<button title="Previous image" class="button prev" on:click={swipeGallery.prev} />
 				{/if}
 
 				{#if i + 1 === images.length}
-					<Link to={'/'}>
-						<button title="Next project" class="next link"></button>
+					<Link to={next}>
+						<div title="Next project" class="button next link"></div>
 					</Link>
 				{:else}
-					<button title="Next image" class="next" on:click={swipeGallery.next} />
+					<button title="Next image" class="button next" on:click={swipeGallery.next} />
 				{/if}
 
 			</figure>
@@ -96,23 +98,23 @@
         align-items: center;
     }
 
-	button {
+	.button {
         position: absolute;
         top: 0;
         width: 50%;
         height: 100%;
         z-index: 5;
     }
-    button.prev {
+    .button.prev {
         left: 0;
         cursor: w-resize;
     }
-    button.next {
+    .button.next {
         left: 50%;
         cursor: e-resize;
     }
 
-    button.link {
+    .link {
         cursor: pointer !important;
     }
 

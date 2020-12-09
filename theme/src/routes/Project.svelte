@@ -7,8 +7,12 @@
     export let project;
     export let index = 1;
 
+    /*
+    rerender gallery component when new project is shown
+    */
     let showGallery = false;
-    $: rerenderGallery( project );
+    $: url = project.url;
+    $: rerenderGallery( url );
     function rerenderGallery( project ){
         showGallery = false;
         setTimeout(()=>{
@@ -37,7 +41,7 @@
 
     {#if showGallery === true}
         <section>
-            <Gallery images={project.images} let:prop={[image,i]} {index} on:slide={(e) => index = e.detail.index}>
+            <Gallery images={project.images} let:prop={[image,i]} {index} on:slide={(e) => index = e.detail.index} prev={project.prev} next={project.next}>
 
                 <div class="square">
                     <Img srcset={image.srcset} alt="{image.alt}" />
