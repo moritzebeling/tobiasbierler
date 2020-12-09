@@ -1,13 +1,20 @@
 <script>
 
-    import { Route, Link } from "svelte-routing";
+    import { Route, Link, navigate } from "svelte-routing";
     import Img from '../components/Img.svelte';
     import Gallery from '../components/Gallery.svelte';
 
     export let project;
     export let index = 1;
 
-    console.log( index );
+    let showGallery = false;
+    $: rerenderGallery( project );
+    function rerenderGallery( project ){
+        showGallery = false;
+        setTimeout(()=>{
+            showGallery = true;
+        }, 2);
+    }
 
 </script>
 
@@ -28,15 +35,17 @@
         </div>
     </header>
 
-    <section>
-        <Gallery images={project.images} let:prop={[image,i]} {index} on:slide={(e) => index = e.detail.index}>
+    {#if showGallery === true}
+        <section>
+            <Gallery images={project.images} let:prop={[image,i]} {index} on:slide={(e) => index = e.detail.index}>
 
-            <div class="square">
-                <Img srcset={image.srcset} alt="{image.alt}" />
-            </div>
+                <div class="square">
+                    <Img srcset={image.srcset} alt="{image.alt}" />
+                </div>
 
-        </Gallery>
-    </section>
+            </Gallery>
+        </section>
+    {/if}
 
 </article>
 
