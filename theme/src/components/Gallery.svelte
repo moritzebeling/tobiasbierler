@@ -2,98 +2,88 @@
 
     import { onMount, onDestroy, createEventDispatcher } from "svelte";
     import { Link, navigate } from "svelte-routing";
-	import Swipe from "swipejs";
+
+    import 'swiper/swiper-bundle.css';
+    import Swiper from 'swiper';
+
+    // prev/next project
+	export let prev;
+    export let next;
 
 	export let images;
-	export let prev;
-	export let next;
     export let index = 1;
 	let container;
-    let swipeGallery;
+    let swiper;
     const dispatch = createEventDispatcher();
 
 	onMount(() => {
 
-        swipeGallery = new Swipe(container, {
-            draggable: true,
+        swiper = new Swiper(container, {
+            loop: false,
             speed: 400,
-            continuous: false,
-            startSlide: index - 1,
-            callback: function(i, element) {
-                let n = i + 1;
-                index = n;
-                navigate(n, { replace: true });
-				dispatch('slide', {
-					index: n
-				});
-            }
-        });
+            initialSlide: index - 1,
+            on: {
+                slideChange: function ( event ) {
+                    let n = this.activeIndex + 1;
+                    index = parseInt( n );
+                    navigate(n, { replace: true });
+                    dispatch('slide', {
+                        index: n
+                    });
+                },
+            },
+         })
 
     });
 
     onDestroy(() => {
 
-        swipeGallery.kill();
-        swipeGallery = undefined;
+        swiper.destroy();
+        swiper = undefined;
 
     });
 
 </script>
 
-<div class="swipe" bind:this={container}>
-	<div class="swipe-wrap">
+<div class="swiper-container" bind:this={container}>
+
+	<div class="swiper-wrapper">
 		{#each images as image, i}
-
-			<figure title="{image.alt}">
-
-				<slot prop={[image, i]}></slot>
-
-				{#if i === 0}
-					<Link to={prev}>
-						<div title="Previous project" class="button prev link"></div>
-					</Link>
-				{:else}
-					<button title="Previous image" class="button prev" on:click={swipeGallery.prev} />
-				{/if}
-
-				{#if i + 1 === images.length}
-					<Link to={next}>
-						<div title="Next project" class="button next link"></div>
-					</Link>
-				{:else}
-					<button title="Next image" class="button next" on:click={swipeGallery.next} />
-				{/if}
-
-			</figure>
-
+            <div class="swiper-slide">
+                <slot prop={[image, i]}></slot>
+            </div>
 		{/each}
 	</div>
+
+    {#if index == 1}
+        <Link to={prev}>
+            <div title="Previous project" class="button prev link"></div>
+        </Link>
+    {:else}
+        <button title="Previous image" class="button prev" on:click={swiper.slidePrev()}></button>
+    {/if}
+
+    {#if index == images.length}
+        <Link to={next}>
+            <div title="Next project" class="button next link"></div>
+        </Link>
+    {:else}
+        <button title="Next image" class="button next" on:click={swiper.slideNext()}></button>
+    {/if}
+
 </div>
 
 <style>
 
-	.swipe {
-        overflow: hidden;
-        visibility: hidden;
-        position: relative;
+	.swiper-container {
         height: 100%;
         width: 100vw;
     }
-
-    .swipe-wrap {
-        overflow: hidden;
-        position: relative;
-        height: 100%;
+    .swiper-slide {
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
     }
-
-	figure {
-        position: relative;
-        height: 100vh;
-        width: 100vw;
-        float: left;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+	.swiper-slide {
     }
 
 	.button {

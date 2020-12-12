@@ -20,6 +20,6 @@
     "lazysizes": "^5.2.2",
     "sirv-cli": "^1.0.0",
     "svelte-routing": "^1.4.2",
-    "swipejs": "^2.2.18"
+    "swiper": "^6.4.1"
   }
 }

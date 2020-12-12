@@ -40,11 +40,11 @@
     {#if showGallery === true}
         <section>
             <Gallery images={project.images} let:prop={[image,i]} {index} on:slide={(e) => index = e.detail.index} prev={project.prev} next={project.next}>
-
-                <div class="square">
-                    <Img srcset={image.srcset} alt="{image.alt}" />
-                </div>
-
+                <figure class="" title="{image.alt}">
+                    <div class="square">
+                        <Img srcset={image.srcset} alt="{image.alt}" />
+                    </div>
+			    </figure>
             </Gallery>
         </section>
     {/if}
@@ -85,10 +85,17 @@
         flex-direction: column;
     }
 
+    figure {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .square {
         width: 100vh;
         height: 100vh;
-        padding: 4rem 1.5rem;
     }
 
     @media all and (orientation: portrait) {
