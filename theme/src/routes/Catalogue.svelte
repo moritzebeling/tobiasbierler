@@ -53,7 +53,7 @@
 
 	h2 span {
         display: inline-block;
-        margin-right: 1rem;
+        margin-right: 0.7em;
     }
 
     figure {
