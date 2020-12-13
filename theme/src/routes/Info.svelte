@@ -1,14 +1,14 @@
 <script>
 
     import { Link } from "svelte-routing";
+    import Imprint from './Imprint.svelte';
+
     export let data;
     console.log( data );
 
 </script>
 
 <main>
-
-    <h2>Architekt</h2>
 
     <ul>
         {#each data.pages as item}
@@ -23,21 +23,24 @@
         {/each}
     </ul>
 
+    <aside>
+        <Imprint />
+    </aside>
+
 </main>
 
 <style>
 
     main {
-        margin: 1.2rem 0;
-		padding: 1rem;
+		padding: 2rem 1rem 1rem;
     }
 
     ul {
-        margin: 3rem 0;
+        margin: 1rem 0;
     }
 
     li {
-        margin: 0.5rem 0;
+        margin: 0.25rem 0;
     }
 
     li span {
