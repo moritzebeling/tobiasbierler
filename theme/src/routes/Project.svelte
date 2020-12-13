@@ -27,14 +27,14 @@
 <article>
 
     <header>
+        <div class="index">
+            <span>{index}</span>/<span>{project.images.length}</span>
+        </div>
         <h1>
             <span class="year">{project.year}</span>
             <span>{project.title}</span>
             <span>{project.images[index-1].alt}</span>
         </h1>
-        <div class="index">
-            <span>{index}</span>/<span>{project.images.length}</span>
-        </div>
     </header>
 
     {#if showGallery === true}
@@ -60,8 +60,6 @@
         width: 100%;
         padding: 1rem;
         z-index: 50;
-        display: flex;
-        justify-content: space-between;
     }
 
     h1 span {
@@ -71,6 +69,11 @@
 
     .year, .index {
         letter-spacing: 0.02em;
+        white-space: nowrap;
+    }
+
+    .index {
+        float: right;
     }
 
     .index span {
@@ -96,10 +99,13 @@
     .square {
         width: 100vh;
         height: 100vh;
+        padding: 3rem 1rem;
+        box-sizing: border-box;
     }
 
     @media all and (orientation: portrait) {
         .square {
+            padding: 1rem;
             width: 100vw;
             height: 100vw;
         }
