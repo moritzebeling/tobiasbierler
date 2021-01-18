@@ -8,7 +8,7 @@ function shuffle(array) {
 
 export function imageIndex( portfolio ){
     let images = [];
-    for( const project of portfolio.pages ){
+    for( const project of portfolio.pages.reverse() ){
         for (let i = 0; i < project.images.length; i++){
             images.push({ ...project.images[i],
                 project: project.title,
@@ -16,5 +16,6 @@ export function imageIndex( portfolio ){
             });
         }
     }
-    return shuffle( images );
+    // return shuffle( images );
+    return images;
 }

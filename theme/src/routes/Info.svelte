@@ -11,7 +11,7 @@
 <main>
 
     <ul>
-        {#each data.pages as item}
+        {#each data.pages.reverse() as item}
             <li>
                 <Link to='{item.url}/1'>
 
