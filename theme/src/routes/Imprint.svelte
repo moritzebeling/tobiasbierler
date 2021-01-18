@@ -26,10 +26,6 @@
 
 <style>
 
-    aside {
-        margin: 1rem;
-    }
-
     h1, p {
         margin: 1rem 0;
     }

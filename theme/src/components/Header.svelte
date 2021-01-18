@@ -13,7 +13,7 @@
 <style>
 
     header {
-        padding: 1rem;
+        margin-bottom: 1rem;
     }
 
 </style>

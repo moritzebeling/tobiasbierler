@@ -15,7 +15,6 @@
 <style>
 
 	ul {
-		padding: 0 1rem;
 		margin-bottom: 1rem;
 		display: grid;
 		gap: 6vw;

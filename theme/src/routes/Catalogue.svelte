@@ -37,8 +37,7 @@
 <style>
 
 	article {
-		padding: 0 1rem;
-		margin: 1rem 0 8rem;
+		margin-bottom: 8rem;
 	}
 
 	header {
