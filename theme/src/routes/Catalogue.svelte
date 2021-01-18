@@ -38,7 +38,7 @@
 
 	article {
 		padding: 0 1rem;
-		margin-bottom: 8rem;
+		margin: 1rem 0 8rem;
 	}
 
 	header {
@@ -67,7 +67,7 @@
 	}
 
 	figcaption {
-		font-size: 0.6rem;
+		font-size: 0.7rem;
 		margin-top: 1em;
 		text-align: center;
 	}

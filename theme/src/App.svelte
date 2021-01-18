@@ -15,8 +15,6 @@
 
 <Router url="{url}">
 
-	<Header {data} />
-
 	<main>
 		<Route path="/" component="{Index}" {data} />
 		<Route path="info" component="{Info}" {data} />

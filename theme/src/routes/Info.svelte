@@ -21,15 +21,13 @@
     {/each}
 </ul>
 
-<aside>
-    <Imprint />
-</aside>
+<Imprint />
 
 <style>
 
-    ul, aside {
+    ul {
         padding: 0 1rem;
-		margin-bottom: 1rem;
+		margin: 1rem 0;
     }
 
     li {

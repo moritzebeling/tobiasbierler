@@ -2,8 +2,11 @@
 
 	import { Link } from "svelte-routing";
 	import { imageIndex } from '../utilities/imageIndex.js';
+    import Header from '../components/Header.svelte';
     import Grid from '../components/Grid.svelte';
     import Img from '../components/Img.svelte';
+
+    import Imprint from './Imprint.svelte';
 
 	export let data;
     let images = imageIndex( data );
@@ -11,6 +14,8 @@
     console.log( images );
 
 </script>
+
+<Header />
 
 <Grid items={images} let:prop={[item,i]}>
 	<Link to={item.href}>
@@ -21,6 +26,8 @@
 		</figure>
 	</Link>
 </Grid>
+
+<Imprint />
 
 <style>
 

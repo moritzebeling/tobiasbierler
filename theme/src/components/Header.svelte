@@ -2,18 +2,11 @@
 
     import { Link } from "svelte-routing";
 
-    export let data;
-
 </script>
 
 <header>
 
-    <nav>
-        <h1>
-            <Link to="/">{data.title}</Link>
-        </h1>
-        <Link to="info">Info</Link>
-    </nav>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 
 </header>
 
@@ -21,23 +14,6 @@
 
     header {
         padding: 1rem;
-    }
-
-    nav {
-        display: flex;
-    }
-
-    nav :global(a) {
-        margin-right: 0.5em;
-    }
-
-    nav > :global(a) {
-        opacity: 0;
-        transition: opacity 300ms ease;
-    }
-
-    nav:hover > :global(a) {
-        opacity: 1;
     }
 
 </style>
