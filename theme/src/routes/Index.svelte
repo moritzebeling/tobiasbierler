@@ -15,21 +15,29 @@
 
 </script>
 
-<Header />
+<main>
 
-<Grid items={images} let:prop={[item,i]}>
-	<Link to={item.href}>
-		<figure title="{item.project} {item.alt}">
+    <Header />
 
-			<Img srcset={item.srcset} alt="{item.alt}" />
+    <Grid items={images} let:prop={[item,i]}>
+        <Link to={item.href}>
+            <figure title="{item.project} {item.alt}">
 
-		</figure>
-	</Link>
-</Grid>
+                <Img srcset={item.srcset} alt="{item.alt}" />
 
-<Imprint />
+            </figure>
+        </Link>
+    </Grid>
+
+    <Imprint />
+
+</main>
 
 <style>
+
+    main {
+        margin: 1rem;
+    }
 
     figure {
         width: 100%;

@@ -10,31 +10,39 @@
 
 </script>
 
-{#each data.pages.reverse() as project}
-	<article>
+<main>
 
-		<header>
-			<Link to={project.url}>
-				<h2>
-					<span>{project.year}</span>
-					<span>{project.title}</span>
-				</h2>
-			</Link>
-		</header>
+	{#each data.pages.reverse() as project}
+		<article>
 
-		<Grid items={project.images} let:prop={[item,i]}>
-			<Link to="{project.url}/{i+1}">
-				<figure title="{item.alt}">
-					<Img srcset={item.srcset} alt="{item.alt}" />
-					<figcaption>{item.alt}</figcaption>
-				</figure>
-			</Link>
-		</Grid>
+			<header>
+				<Link to={project.url}>
+					<h2>
+						<span>{project.year}</span>
+						<span>{project.title}</span>
+					</h2>
+				</Link>
+			</header>
 
-	</article>
-{/each}
+			<Grid items={project.images} let:prop={[item,i]}>
+				<Link to="{project.url}/{i+1}">
+					<figure title="{item.alt}">
+						<Img srcset={item.srcset} alt="{item.alt}" />
+						<figcaption>{item.alt}</figcaption>
+					</figure>
+				</Link>
+			</Grid>
+
+		</article>
+	{/each}
+
+</main>
 
 <style>
+
+	main {
+        margin: 1rem;
+    }
 
 	article {
 		margin-bottom: 8rem;

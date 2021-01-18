@@ -15,21 +15,11 @@
 
 <Router url="{url}">
 
-	<main>
-		<Route path="/" component="{Index}" {data} />
-		<Route path="info" component="{Info}" {data} />
-		<Route path="catalogue" component="{Catalogue}" {data} />
-		<Route path="portfolio/:id/:index" let:params>
-			<Project project={getProject( data.pages, 'portfolio/' + params.id )} index={params.index}/>
-		</Route>
-	</main>
+	<Route path="/" component="{Index}" {data} />
+	<Route path="info" component="{Info}" {data} />
+	<Route path="catalogue" component="{Catalogue}" {data} />
+	<Route path="portfolio/:id/:index" let:params>
+		<Project project={getProject( data.pages, 'portfolio/' + params.id )} index={params.index}/>
+	</Route>
 
 </Router>
-
-<style>
-
-	main {
-		margin: 1rem;
-	}
-
-</style>
