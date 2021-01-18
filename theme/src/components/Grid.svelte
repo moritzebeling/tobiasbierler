@@ -15,8 +15,8 @@
 <style>
 
 	ul {
-		margin: 2.5rem 0;
-		padding: 1rem;
+		padding: 0 1rem;
+		margin-bottom: 1rem;
 		display: grid;
 		gap: 6vw;
 		grid-template-columns: 1fr 1fr;

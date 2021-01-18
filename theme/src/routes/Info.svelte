@@ -8,35 +8,28 @@
 
 </script>
 
-<main>
+<ul>
+    {#each data.pages.reverse() as item}
+        <li>
+            <Link to='{item.url}/1'>
 
-    <ul>
-        {#each data.pages.reverse() as item}
-            <li>
-                <Link to='{item.url}/1'>
+                <span class="year">{item.year}</span>
+                <span>{item.title}</span>
 
-                    <span class="year">{item.year}</span>
-                    <span>{item.title}</span>
+            </Link>
+        </li>
+    {/each}
+</ul>
 
-                </Link>
-            </li>
-        {/each}
-    </ul>
-
-    <aside>
-        <Imprint />
-    </aside>
-
-</main>
+<aside>
+    <Imprint />
+</aside>
 
 <style>
 
-    main {
-		padding: 2rem 1rem 1rem;
-    }
-
-    ul {
-        margin: 1rem 0;
+    ul, aside {
+        padding: 0 1rem;
+		margin-bottom: 1rem;
     }
 
     li {

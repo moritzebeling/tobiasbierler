@@ -10,40 +10,34 @@
 
 </script>
 
-<div class="wrapper">
-	{#each data.pages.reverse() as project}
-		<article>
+{#each data.pages.reverse() as project}
+	<article>
 
-			<header>
-				<Link to={project.url}>
-					<h2>
-						<span>{project.year}</span>
-						<span>{project.title}</span>
-					</h2>
-				</Link>
-			</header>
+		<header>
+			<Link to={project.url}>
+				<h2>
+					<span>{project.year}</span>
+					<span>{project.title}</span>
+				</h2>
+			</Link>
+		</header>
 
-			<Grid items={project.images} let:prop={[item,i]}>
-				<Link to="{project.url}/{i+1}">
-					<figure title="{item.alt}">
-						<Img srcset={item.srcset} alt="{item.alt}" />
-						<figcaption>{item.alt}</figcaption>
-					</figure>
-				</Link>
-			</Grid>
+		<Grid items={project.images} let:prop={[item,i]}>
+			<Link to="{project.url}/{i+1}">
+				<figure title="{item.alt}">
+					<Img srcset={item.srcset} alt="{item.alt}" />
+					<figcaption>{item.alt}</figcaption>
+				</figure>
+			</Link>
+		</Grid>
 
-		</article>
-	{/each}
-</div>
+	</article>
+{/each}
 
 <style>
 
-	.wrapper {
-		margin: 2.5rem 0;
-		padding: 1.5rem;
-	}
-
 	article {
+		padding: 0 1rem;
 		margin-bottom: 8rem;
 	}
 
