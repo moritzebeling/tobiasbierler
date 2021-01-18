@@ -11,7 +11,7 @@
 </script>
 
 <div class="wrapper">
-	{#each data.pages as project}
+	{#each data.pages.reverse() as project}
 		<article>
 
 			<header>
