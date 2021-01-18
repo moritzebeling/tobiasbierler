@@ -158,9 +158,11 @@ table {
 }
 
 html {
-	font-size: 17px;
+	font-size: 14px;
 }
 body {
+	font-family: "Arial", sans-serif;
+	line-height: 1.2;
 	letter-spacing: 0.02em;
 }
 
