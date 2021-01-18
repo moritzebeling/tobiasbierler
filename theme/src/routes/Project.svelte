@@ -91,15 +91,12 @@
     figure {
         position: relative;
         height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     .square {
         width: 100vh;
         height: 100vh;
-        padding: 3rem 1rem;
+        padding: 1rem 1rem 3rem;
         box-sizing: border-box;
     }
 
@@ -115,6 +112,6 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        object-position: center;
+        object-position: left top;
     }
 </style>
