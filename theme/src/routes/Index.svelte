@@ -29,7 +29,7 @@
         </Link>
     </Grid>
 
-    <Imprint />
+    <Imprint contact={data.contact} />
 
 </main>
 
