@@ -5,7 +5,8 @@
     import Gallery from '../components/Gallery.svelte';
 
     export let project;
-    export let index = 1;
+    export let index = 0;
+    console.log( index );
 
     console.log( project );
 
@@ -28,18 +29,18 @@
 
     <header>
         <div class="index">
-            <span>{index}</span>/<span>{project.images.length}</span>
+            <span>{index+1}</span>/<span>{project.images.length}</span>
         </div>
         <h1>
             <span class="year">{project.year}</span>
             <span>{project.title}</span>
-            <span>{project.images[index-1].alt}</span>
+            <span>{project.images[index].alt}</span>
         </h1>
     </header>
 
     {#if showGallery === true}
         <section>
-            <Gallery images={project.images} let:prop={[image,i]} {index} on:slide={(e) => index = e.detail.index} prev={project.prev} next={project.next}>
+            <Gallery images={project.images} let:prop={[image,i]} {index} on:slide={(e) => index = e.detail.index}>
                 <figure class="" title="{image.alt}">
                     <div class="square">
                         <Img srcset={image.srcset} alt="{image.alt}" />

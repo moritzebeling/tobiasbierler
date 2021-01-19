@@ -1,34 +1,38 @@
 <script>
 
     import { onMount, onDestroy, createEventDispatcher } from "svelte";
-    import { Link, navigate } from "svelte-routing";
+    import { navigate } from "svelte-routing";
 
     import 'swiper/swiper-bundle.css';
     import Swiper from 'swiper';
 
-    // prev/next project
-	export let prev;
-    export let next;
-
 	export let images;
-    export let index = 1;
+    export let index = 0;
 	let container;
     let swiper;
     const dispatch = createEventDispatcher();
 
+    function slideHook( n, max ){
+        let i = n % max;
+        if( i === 0 ){
+            i = max;
+        }
+        console.log( n, i );
+        navigate(i, { replace: true });
+        return i;
+    }
+
 	onMount(() => {
 
         swiper = new Swiper(container, {
-            loop: false,
+            loop: true,
             speed: 400,
-            initialSlide: index - 1,
+            initialSlide: index,
             on: {
                 slideChange: function ( event ) {
-                    let n = this.activeIndex + 1;
-                    index = parseInt( n );
-                    navigate(n, { replace: true });
+                    index = slideHook( parseInt( this.activeIndex ), images.length );
                     dispatch('slide', {
-                        index: n
+                        index: this.activeIndex
                     });
                 },
             },
@@ -55,21 +59,8 @@
 		{/each}
 	</div>
 
-    {#if index == 1}
-        <Link to={prev}>
-            <div title="Previous project" class="button prev link"></div>
-        </Link>
-    {:else}
-        <button title="Previous image" class="button prev" on:click={swiper.slidePrev()}></button>
-    {/if}
-
-    {#if index == images.length}
-        <Link to={next}>
-            <div title="Next project" class="button next link"></div>
-        </Link>
-    {:else}
-        <button title="Next image" class="button next" on:click={swiper.slideNext()}></button>
-    {/if}
+    <button title="Previous image" class="button prev" on:click={swiper.slidePrev()}></button>
+    <button title="Next image" class="button next" on:click={swiper.slideNext()}></button>
 
 </div>
 
@@ -102,10 +93,6 @@
     .button.next {
         left: 50%;
         cursor: e-resize;
-    }
-
-    .link {
-        cursor: pointer !important;
     }
 
 </style>
