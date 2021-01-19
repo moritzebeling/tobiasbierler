@@ -1,6 +1,6 @@
 <script>
 
-    import { Route, Link, navigate } from "svelte-routing";
+    import { Link } from "svelte-routing";
     import Img from '../components/Img.svelte';
     import Gallery from '../components/Gallery.svelte';
 
@@ -28,14 +28,17 @@
 <article>
 
     <header>
-        <div class="index">
-            <span>{index+1}</span>/<span>{project.images.length}</span>
-        </div>
+        <nav>
+            <Link to="/">Zurück</Link>
+        </nav>
         <h1>
             <span class="year">{project.year}</span>
             <span>{project.title}</span>
             <span>{project.images[index].alt}</span>
         </h1>
+        <div class="index">
+            <span>{index+1}</span>/<span>{project.images.length}</span>
+        </div>
     </header>
 
     {#if showGallery === true}
@@ -61,10 +64,18 @@
         width: 100%;
         padding: 1rem;
         z-index: 50;
+        display: flex;
     }
 
-    h1 span {
+    h1 {
+        flex: 1;
+    }
+
+    span {
         display: inline-block;
+    }
+
+    nav, h1 span {
         margin-right: 0.7em;
     }
 
@@ -74,11 +85,10 @@
     }
 
     .index {
-        float: right;
+        text-align: right;
+        min-width: 3.3em;
     }
-
     .index span {
-        display: inline-block;
         margin: 0 0.1em;
     }
 
