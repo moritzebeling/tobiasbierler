@@ -9,9 +9,9 @@
     import Imprint from './Imprint.svelte';
 
 	export let data;
-    let images = imageIndex( data );
+    // let images = imageIndex( data );
 
-    console.log( images );
+    // console.log( images );
 
 </script>
 
@@ -19,15 +19,20 @@
 
     <Header />
 
-    <Grid items={images} let:prop={[item,i]}>
-        <Link to={item.href}>
-            <figure title="{item.project} {item.alt}">
+    <ol>
+        {#each data.pages.reverse() as project}
+            <li>
 
-                <Img srcset={item.srcset} alt="{item.alt}" />
+                <Link to={project.url}>
+                    <h2>
+                        <span class="year">{project.year}</span>
+                        <span>{project.title}</span>
+                    </h2>
+                </Link>
 
-            </figure>
-        </Link>
-    </Grid>
+            </li>
+        {/each}
+    </ol>
 
     <Imprint />
 
@@ -39,16 +44,18 @@
         margin: 1rem;
     }
 
-    figure {
-        width: 100%;
-        height: 100%;
+    li + li {
+        /* margin-top: 0.5em; */
+    }
+    li :global( a ){
+        text-decoration: underline;
     }
 
-    figure :global( img ) {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
-	}
+    .year {
+        font-feature-settings: "tnum";
+    }
+    .year:after {
+        content: ',';
+    }
 
 </style>

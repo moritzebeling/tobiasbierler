@@ -12,9 +12,8 @@
 
 <aside>
 
-    <h1>{contact.name}</h1>
-
-    <p>{contact.email}<br />
+    <p>{contact.name}<br />
+    {contact.email}<br />
     {contact.street}<br />
     {contact.zip} {contact.city}</p>
 
