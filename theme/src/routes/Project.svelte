@@ -18,9 +18,9 @@
 <article>
 
     <header>
-        <p class="year nowrap">{project.year}</p>
+        <p class="year num">{project.year}</p>
         <h1>{project.title}</h1>
-        <p class="index nowrap">Bild {index + 1} von {project.images.length}</p>
+        <p class="index num">Bild {index + 1} von {project.images.length}</p>
         {#if project.images[index]}
             <h2>{project.images[index].alt}</h2>
         {/if}
@@ -28,7 +28,7 @@
 
     <section>
         <Gallery images={project.images} let:prop={[image,i]} on:slide={handleSlide}>
-            <figure class="" title="{image.alt}">
+            <figure title="{image.alt}">
                 <div class="square">
                     <Img srcset={image.srcset} alt="{image.alt}" />
                 </div>
@@ -47,42 +47,22 @@
         width: 100%;
         padding: 1rem;
         z-index: 50;
-        display: flex;
-        flex-wrap: wrap;
     }
 
-    h1 {
-        margin-right: 0.3em;
+    h1, h2, p {
+        display: inline;
+    }
+
+    .year:after {
+        content: ',';
     }
     h1:after {
         content: '.';
-    }
-
-    p {
-        margin-right: 0.3em;
     }
     p:after {
         content: ':';
     }
 
-    span {
-        display: inline-block;
-    }
-
-    .year, .index {
-        letter-spacing: 0.02em;
-    }
-
-    .nowrap {
-        white-space: nowrap;
-    }
-
-    .year {
-        font-feature-settings: "tnum";
-    }
-    .year:after {
-        content: ',';
-    }
 
     section {
         height: 100vh;
@@ -97,8 +77,8 @@
     }
 
     .square {
-        width: 100vh;
-        height: 100vh;
+        width: 85vh;
+        height: 85vh;
         padding: 1rem 1rem 3rem;
         box-sizing: border-box;
     }
@@ -106,8 +86,8 @@
     @media all and (orientation: portrait) {
         .square {
             padding: 1rem;
-            width: 100vw;
-            height: 100vw;
+            width: 85vw;
+            height: 85vw;
         }
     }
 

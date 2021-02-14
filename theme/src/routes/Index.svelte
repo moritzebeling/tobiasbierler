@@ -22,7 +22,7 @@
 
                 <Link to={project.url}>
                     <h2>
-                        <span class="year">{project.year}</span>
+                        <span class="year num">{project.year}</span>
                         <span>{project.title}</span>
                     </h2>
                 </Link>
@@ -45,9 +45,6 @@
         text-decoration: underline;
     }
 
-    .year {
-        font-feature-settings: "tnum";
-    }
     .year:after {
         content: ',';
     }

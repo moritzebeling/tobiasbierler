@@ -178,3 +178,12 @@ li > a {
 	opacity: 1;
 	transition: opacity 300ms;
 }
+
+.num {
+	letter-spacing: 0.02em;
+	font-feature-settings: "tnum";
+	white-space: nowrap;
+}
+.nowrap {
+	white-space: nowrap;
+}
