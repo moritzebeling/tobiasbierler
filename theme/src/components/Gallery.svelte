@@ -40,7 +40,24 @@
         }
     });
 
+    function handleKeydown(event) {
+        switch (event.code) {
+            case 'ArrowLeft':
+            case 'KeyA':
+                swiper.slidePrev();
+                break;
+            case 'ArrowRight':
+            case 'KeyD':
+            case 'Space':
+            case 'Enter':
+                swiper.slideNext();
+                break;
+        }
+	}
+
 </script>
+
+<svelte:window on:keydown={handleKeydown}/>
 
 <div class="swiper-container" bind:this={container}>
 
