@@ -69,8 +69,8 @@
 		{/each}
 	</div>
 
-    <button title="Previous image" class="button prev" on:click={swiper.slidePrev()}></button>
-    <button title="Next image" class="button next" on:click={swiper.slideNext()}></button>
+    <button title="Vorheriges Bild" class="button prev" on:click={swiper.slidePrev()}></button>
+    <button title="Nächstes Bild" class="button next" on:click={swiper.slideNext()}></button>
 
 </div>
 
