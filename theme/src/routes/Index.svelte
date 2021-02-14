@@ -9,9 +9,6 @@
     import Imprint from './Imprint.svelte';
 
 	export let data;
-    // let images = imageIndex( data );
-
-    // console.log( images );
 
 </script>
 
@@ -44,9 +41,6 @@
         margin: 1rem;
     }
 
-    li + li {
-        /* margin-top: 0.5em; */
-    }
     li :global( a ){
         text-decoration: underline;
     }

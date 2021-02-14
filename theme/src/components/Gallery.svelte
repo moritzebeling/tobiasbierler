@@ -1,50 +1,43 @@
 <script>
 
-    import { onMount, onDestroy, createEventDispatcher } from "svelte";
-    import { navigate } from "svelte-routing";
-
+    import { onMount, createEventDispatcher } from "svelte";
     import 'swiper/swiper-bundle.css';
     import Swiper from 'swiper';
 
 	export let images;
-    export let index = 0;
+    let index = 0;
+
 	let container;
     let swiper;
     const dispatch = createEventDispatcher();
 
     function slideHook( n, max ){
-        let i = n % max;
-        if( i === 0 ){
-            i = max;
+        let i = ( n % max ) - 1;
+        if( i < 0 ){
+            i = max - 1;
+        } else if( i >= max ){
+            i = 0;
         }
-        console.log( n, i );
-        navigate(i, { replace: true });
         return i;
     }
 
 	onMount(() => {
-
         swiper = new Swiper(container, {
             loop: true,
             speed: 400,
-            initialSlide: index,
             on: {
                 slideChange: function ( event ) {
                     index = slideHook( parseInt( this.activeIndex ), images.length );
                     dispatch('slide', {
-                        index: this.activeIndex
+                        index: index
                     });
                 },
             },
-         })
-
-    });
-
-    onDestroy(() => {
-
-        swiper.destroy();
-        swiper = undefined;
-
+        });
+        return ()=>{
+            swiper.destroy();
+            swiper = undefined;
+        }
     });
 
 </script>
@@ -73,8 +66,6 @@
     .swiper-slide {
         -webkit-transform: translateZ(0);
         -webkit-backface-visibility: hidden;
-    }
-	.swiper-slide {
     }
 
 	.button {

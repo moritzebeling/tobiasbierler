@@ -5,22 +5,12 @@
     import Gallery from '../components/Gallery.svelte';
 
     export let project;
-    export let index = 0;
-    console.log( index );
-
     console.log( project );
 
-    /*
-    * rerender gallery component when new project is shown
-    */
-    let showGallery = false;
-    $: url = project.url;
-    $: rerenderGallery( url );
-    function rerenderGallery( project ){
-        showGallery = false;
-        setTimeout(()=>{
-            showGallery = true;
-        }, 2);
+    let index;
+
+    function handleSlide( event ){
+        index = event.detail.index;
     }
 
 </script>
@@ -34,24 +24,24 @@
         <h1>
             <span class="year">{project.year}</span>
             <span>{project.title}</span>
-            <span>{project.images[index].alt}</span>
+            {#if project.images[index]}
+                <span>{project.images[index].alt}</span>
+            {/if}
         </h1>
         <div class="index">
-            <span>{index+1}</span>/<span>{project.images.length}</span>
+            <span>{index + 1}</span>/<span>{project.images.length}</span>
         </div>
     </header>
 
-    {#if showGallery === true}
-        <section>
-            <Gallery images={project.images} let:prop={[image,i]} {index} on:slide={(e) => index = e.detail.index}>
-                <figure class="" title="{image.alt}">
-                    <div class="square">
-                        <Img srcset={image.srcset} alt="{image.alt}" />
-                    </div>
-			    </figure>
-            </Gallery>
-        </section>
-    {/if}
+    <section>
+        <Gallery images={project.images} let:prop={[image,i]} on:slide={handleSlide}>
+            <figure class="" title="{image.alt}">
+                <div class="square">
+                    <Img srcset={image.srcset} alt="{image.alt}" />
+                </div>
+            </figure>
+        </Gallery>
+    </section>
 
 </article>
 
