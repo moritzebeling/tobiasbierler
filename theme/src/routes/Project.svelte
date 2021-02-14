@@ -18,19 +18,12 @@
 <article>
 
     <header>
-        <nav>
-            <Link to="/">Zurück</Link>
-        </nav>
-        <h1>
-            <span class="year">{project.year}</span>
-            <span>{project.title}</span>
-            {#if project.images[index]}
-                <span>{project.images[index].alt}</span>
-            {/if}
-        </h1>
-        <div class="index">
-            <span>{index + 1}</span>/<span>{project.images.length}</span>
-        </div>
+        <p class="year nowrap">{project.year}</p>
+        <h1>{project.title}</h1>
+        <p class="index nowrap">Bild {index + 1} von {project.images.length}</p>
+        {#if project.images[index]}
+            <h2>{project.images[index].alt}</h2>
+        {/if}
     </header>
 
     <section>
@@ -55,31 +48,40 @@
         padding: 1rem;
         z-index: 50;
         display: flex;
+        flex-wrap: wrap;
     }
 
     h1 {
-        flex: 1;
+        margin-right: 0.3em;
+    }
+    h1:after {
+        content: '.';
+    }
+
+    p {
+        margin-right: 0.3em;
+    }
+    p:after {
+        content: ':';
     }
 
     span {
         display: inline-block;
     }
 
-    nav, h1 span {
-        margin-right: 0.7em;
-    }
-
     .year, .index {
         letter-spacing: 0.02em;
+    }
+
+    .nowrap {
         white-space: nowrap;
     }
 
-    .index {
-        text-align: right;
-        min-width: 3.3em;
+    .year {
+        font-feature-settings: "tnum";
     }
-    .index span {
-        margin: 0 0.1em;
+    .year:after {
+        content: ',';
     }
 
     section {
