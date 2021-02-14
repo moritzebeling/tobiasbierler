@@ -1,6 +1,12 @@
 <script>
 
-    export let contact;
+    let contact = {
+        name: 'Tobias Bierler',
+        email: 'tobiasbierler@icloud.com',
+        street: 'Trierer Str. 62',
+        zip: '99423',
+        city: 'Weimar',
+    }
 
 </script>
 
