@@ -44,7 +44,7 @@ class Page {
     {
         $this->pages = [];
 
-        foreach( scandir( $this->path ) as $item ){
+        foreach( array_reverse( scandir( $this->path )) as $item ){
 
             $first = substr($item, 0, 1);
             if( $first === '.' || $first === '_' ){
