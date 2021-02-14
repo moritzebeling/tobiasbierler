@@ -1,12 +1,8 @@
 <script>
 
 	import { Link } from "svelte-routing";
-	import { imageIndex } from '../utilities/imageIndex.js';
     import Header from '../components/Header.svelte';
-    import Grid from '../components/Grid.svelte';
-    import Img from '../components/Img.svelte';
-
-    import Imprint from './Imprint.svelte';
+    import Imprint from '../components/Imprint.svelte';
 
 	export let data;
 
@@ -17,7 +13,7 @@
     <Header />
 
     <ol>
-        {#each data.pages.reverse() as project}
+        {#each data.pages as project}
             <li>
 
                 <Link to={project.url}>
@@ -41,6 +37,10 @@
         margin: 1rem;
     }
 
+    li {
+        padding-left: 2.9em;
+        text-indent: -2.9em;
+    }
     li :global( a ){
         text-decoration: underline;
     }
