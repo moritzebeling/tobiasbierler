@@ -18,13 +18,20 @@
 <article>
 
     <header>
-        <p class="year num">{project.year}</p>
-        <h1>{project.title}</h1>
+
+        <p class="i num">{project.n}</p>
+
         <p class="index num">Bild {index + 1} von {project.images.length}</p>
+
         {#if project.images[index]}
             <h2>{project.images[index].alt}</h2>
         {/if}
+
     </header>
+
+    <footer>
+        <Link to="/">Zurück</Link>
+    </footer>
 
     <section>
         <Gallery images={project.images} let:prop={[image,i]} on:slide={handleSlide}>
@@ -53,16 +60,13 @@
         display: inline;
     }
 
-    .year:after {
-        content: ',';
-    }
-    h1:after {
-        content: '.';
-    }
-    p:after {
+    .index:after {
         content: ':';
     }
-
+    .i {
+        min-width: 1.6em;
+        display: inline-block;
+    }
 
     section {
         height: 100vh;
@@ -97,4 +101,23 @@
         object-fit: contain;
         object-position: left top;
     }
+
+    footer {
+        display: none;
+    }
+    @media all and (min-width: 1000px){
+        footer {
+            display: block;
+            position: fixed;
+            z-index: 60;
+            bottom: 0;
+            right: 0;
+            padding: 1rem;
+        }
+        footer :global( a ){
+	        text-decoration: underline;
+        }
+
+    }
+
 </style>

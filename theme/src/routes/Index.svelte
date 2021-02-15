@@ -6,6 +6,11 @@
 
 	export let data;
 
+    function num( i, l ){
+        let n = `00${l-i}`;
+        return n.substr(-2);
+    }
+
 </script>
 
 <main>
@@ -13,16 +18,22 @@
     <Header text={data.header} />
 
     <ol>
-        {#each data.pages as project}
+        {#each data.pages as project, i}
             <li>
-
                 <Link to={project.url}>
-                    <h2>
-                        <span class="year num">{project.year}</span>
-                        <span>{project.title}</span>
-                    </h2>
-                </Link>
+                    <article>
 
+                        <span class="i num">{num(i, data.pages.length)}</span><h2>{project.title}</h2>:
+
+                        <p>
+                            {#if project.hasOwnProperty('subtitle')}
+                                <span>{project.title}</span>,
+                            {/if}
+                            <span class="year">{project.year}</span>
+                        </p>
+
+                    </article>
+                </Link>
             </li>
         {/each}
     </ol>
@@ -38,15 +49,24 @@
     }
 
     li {
-        padding-left: 2.9em;
-        text-indent: -2.9em;
+        padding-left: 1.9em;
     }
-    li :global( a ){
-        text-decoration: underline;
+    .i {
+        min-width: 1.9em;
+        margin-left: -1.9em;
+        display: inline-block;
     }
 
-    .year:after {
-        content: ',';
+    article {
+
     }
+    article h2 {
+        text-decoration: underline;
+    }
+    article h2,
+    article p {
+        display: inline;
+    }
+
 
 </style>
