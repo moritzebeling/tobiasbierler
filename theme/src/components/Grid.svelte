@@ -15,10 +15,10 @@
 <style>
 
 	ul {
-		margin: 2.5rem 0;
-		padding: 1rem;
 		display: grid;
 		gap: 6vw;
+		padding: 0 4vw;
+		margin: 4vw 0;
 		grid-template-columns: 1fr 1fr;
 	}
 
@@ -29,30 +29,27 @@
 	}
 	@media only screen and (min-width: 800px) {
 		ul {
-			grid-template-columns: repeat( auto-fit, minmax(130px, 1fr) );
+			grid-template-columns: repeat( auto-fit, minmax(120px, 1fr) );
 		}
 	}
 	@media only screen and (min-width: 920px) {
 		ul {
-			grid-template-columns: repeat( auto-fit, minmax(180px, 1fr) );
+			grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
 			gap: 4vw;
-			padding-left: 4vw;
-			padding-right: 4vw;
+			padding: 0 3vw;
+			margin: 3vw 0;
 		}
 	}
-
 	@media only screen and (min-width: 1500px) {
 		ul {
-			grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+			gap: 3vw;
+			padding: 0 2vw;
+			margin: 2vw 0;
 		}
 	}
-
 	@media only screen and (min-width: 1900px) {
 		ul {
-			grid-template-columns: repeat( auto-fit, minmax(220px, 1fr) );
-			gap: 3vw;
-			padding-left: 3vw;
-			padding-right: 3vw;
+			gap: 2vw;
 		}
 	}
 

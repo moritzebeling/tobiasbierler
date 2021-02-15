@@ -37,6 +37,14 @@ class Page {
 
         }
 
+        foreach( preg_grep('~\.(md)$~', scandir( $this->path )) as $file ){
+
+            $content = file_get_contents( $this->path . DS . $file );
+            $filename = explode('.',$file)[0];
+            $this->data[ $filename ] = (new Parsedown )->setBreaksEnabled(true)->text( $content );
+
+        }
+
         return $this->data;
     }
 
@@ -44,7 +52,7 @@ class Page {
     {
         $this->pages = [];
 
-        foreach( scandir( $this->path ) as $item ){
+        foreach( array_reverse( scandir( $this->path )) as $item ){
 
             $first = substr($item, 0, 1);
             if( $first === '.' || $first === '_' ){

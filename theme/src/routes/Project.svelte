@@ -1,25 +1,16 @@
 <script>
 
-    import { Route, Link, navigate } from "svelte-routing";
+    import { Link } from "svelte-routing";
     import Img from '../components/Img.svelte';
     import Gallery from '../components/Gallery.svelte';
 
     export let project;
-    export let index = 1;
-
     console.log( project );
 
-    /*
-    * rerender gallery component when new project is shown
-    */
-    let showGallery = false;
-    $: url = project.url;
-    $: rerenderGallery( url );
-    function rerenderGallery( project ){
-        showGallery = false;
-        setTimeout(()=>{
-            showGallery = true;
-        }, 2);
+    let index;
+
+    function handleSlide( event ){
+        index = event.detail.index;
     }
 
 </script>
@@ -27,27 +18,23 @@
 <article>
 
     <header>
-        <div class="index">
-            <span>{index}</span>/<span>{project.images.length}</span>
-        </div>
-        <h1>
-            <span class="year">{project.year}</span>
-            <span>{project.title}</span>
-            <span>{project.images[index-1].alt}</span>
-        </h1>
+        <p class="year num">{project.year}</p>
+        <h1>{project.title}</h1>
+        <p class="index num">Bild {index + 1} von {project.images.length}</p>
+        {#if project.images[index]}
+            <h2>{project.images[index].alt}</h2>
+        {/if}
     </header>
 
-    {#if showGallery === true}
-        <section>
-            <Gallery images={project.images} let:prop={[image,i]} {index} on:slide={(e) => index = e.detail.index} prev={project.prev} next={project.next}>
-                <figure class="" title="{image.alt}">
-                    <div class="square">
-                        <Img srcset={image.srcset} alt="{image.alt}" />
-                    </div>
-			    </figure>
-            </Gallery>
-        </section>
-    {/if}
+    <section>
+        <Gallery images={project.images} let:prop={[image,i]} on:slide={handleSlide}>
+            <figure title="{image.alt}">
+                <div class="square">
+                    <Img srcset={image.srcset} alt="{image.alt}" />
+                </div>
+            </figure>
+        </Gallery>
+    </section>
 
 </article>
 
@@ -62,24 +49,20 @@
         z-index: 50;
     }
 
-    h1 span {
-        display: inline-block;
-        margin-right: 0.7em;
+    h1, h2, p {
+        display: inline;
     }
 
-    .year, .index {
-        letter-spacing: 0.02em;
-        white-space: nowrap;
+    .year:after {
+        content: ',';
+    }
+    h1:after {
+        content: '.';
+    }
+    p:after {
+        content: ':';
     }
 
-    .index {
-        float: right;
-    }
-
-    .index span {
-        display: inline-block;
-        margin: 0 0.1em;
-    }
 
     section {
         height: 100vh;
@@ -91,23 +74,20 @@
     figure {
         position: relative;
         height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     .square {
-        width: 100vh;
-        height: 100vh;
-        padding: 3rem 1rem;
+        width: 85vh;
+        height: 85vh;
+        padding: 1rem 1rem 3rem;
         box-sizing: border-box;
     }
 
     @media all and (orientation: portrait) {
         .square {
             padding: 1rem;
-            width: 100vw;
-            height: 100vw;
+            width: 85vw;
+            height: 85vw;
         }
     }
 
@@ -115,6 +95,6 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        object-position: center;
+        object-position: left top;
     }
 </style>

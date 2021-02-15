@@ -1,39 +1,52 @@
 <script>
 
 	import { Link } from "svelte-routing";
-	import { imageIndex } from '../utilities/imageIndex.js';
-    import Grid from '../components/Grid.svelte';
-    import Img from '../components/Img.svelte';
+    import Header from '../components/Header.svelte';
+    import Footer from '../components/Footer.svelte';
 
 	export let data;
-    let images = imageIndex( data );
-
-    console.log( images );
 
 </script>
 
-<Grid items={images} let:prop={[item,i]}>
-	<Link to={item.href}>
-		<figure title="{item.project} {item.alt}">
+<main>
 
-			<Img srcset={item.srcset} alt="{item.alt}" />
+    <Header text={data.header} />
 
-		</figure>
-	</Link>
-</Grid>
+    <ol>
+        {#each data.pages as project}
+            <li>
+
+                <Link to={project.url}>
+                    <h2>
+                        <span class="year num">{project.year}</span>
+                        <span>{project.title}</span>
+                    </h2>
+                </Link>
+
+            </li>
+        {/each}
+    </ol>
+
+    <Footer text={data.footer} />
+
+</main>
 
 <style>
 
-    figure {
-        width: 100%;
-        height: 100%;
+    main {
+        margin: 1rem;
     }
 
-    figure :global( img ) {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
-	}
+    li {
+        padding-left: 2.9em;
+        text-indent: -2.9em;
+    }
+    li :global( a ){
+        text-decoration: underline;
+    }
+
+    .year:after {
+        content: ',';
+    }
 
 </style>

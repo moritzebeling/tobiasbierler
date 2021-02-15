@@ -1,49 +1,63 @@
 <script>
 
-    import { onMount, onDestroy, createEventDispatcher } from "svelte";
-    import { Link, navigate } from "svelte-routing";
-
+    import { onMount, createEventDispatcher } from "svelte";
     import 'swiper/swiper-bundle.css';
     import Swiper from 'swiper';
 
-    // prev/next project
-	export let prev;
-    export let next;
-
 	export let images;
-    export let index = 1;
+    let index = 0;
+
 	let container;
     let swiper;
     const dispatch = createEventDispatcher();
 
-	onMount(() => {
+    function slideHook( n, max ){
+        let i = ( n % max ) - 1;
+        if( i < 0 ){
+            i = max - 1;
+        } else if( i >= max ){
+            i = 0;
+        }
+        return i;
+    }
 
+	onMount(() => {
         swiper = new Swiper(container, {
-            loop: false,
+            loop: true,
             speed: 400,
-            initialSlide: index - 1,
             on: {
                 slideChange: function ( event ) {
-                    let n = this.activeIndex + 1;
-                    index = parseInt( n );
-                    navigate(n, { replace: true });
+                    index = slideHook( parseInt( this.activeIndex ), images.length );
                     dispatch('slide', {
-                        index: n
+                        index: index
                     });
                 },
             },
-         })
-
+        });
+        return ()=>{
+            swiper.destroy();
+            swiper = undefined;
+        }
     });
 
-    onDestroy(() => {
-
-        swiper.destroy();
-        swiper = undefined;
-
-    });
+    function handleKeydown(event) {
+        switch (event.code) {
+            case 'ArrowLeft':
+            case 'KeyA':
+                swiper.slidePrev();
+                break;
+            case 'ArrowRight':
+            case 'KeyD':
+            case 'Space':
+            case 'Enter':
+                swiper.slideNext();
+                break;
+        }
+	}
 
 </script>
+
+<svelte:window on:keydown={handleKeydown}/>
 
 <div class="swiper-container" bind:this={container}>
 
@@ -55,21 +69,8 @@
 		{/each}
 	</div>
 
-    {#if index == 1}
-        <Link to={prev}>
-            <div title="Previous project" class="button prev link"></div>
-        </Link>
-    {:else}
-        <button title="Previous image" class="button prev" on:click={swiper.slidePrev()}></button>
-    {/if}
-
-    {#if index == images.length}
-        <Link to={next}>
-            <div title="Next project" class="button next link"></div>
-        </Link>
-    {:else}
-        <button title="Next image" class="button next" on:click={swiper.slideNext()}></button>
-    {/if}
+    <button title="Vorheriges Bild" class="button prev" on:click={swiper.slidePrev()}></button>
+    <button title="Nächstes Bild" class="button next" on:click={swiper.slideNext()}></button>
 
 </div>
 
@@ -82,8 +83,6 @@
     .swiper-slide {
         -webkit-transform: translateZ(0);
         -webkit-backface-visibility: hidden;
-    }
-	.swiper-slide {
     }
 
 	.button {
@@ -102,10 +101,6 @@
     .button.next {
         left: 50%;
         cursor: e-resize;
-    }
-
-    .link {
-        cursor: pointer !important;
     }
 
 </style>
