@@ -2,7 +2,7 @@
 
 	import { Link } from "svelte-routing";
     import Header from '../components/Header.svelte';
-    import Imprint from '../components/Imprint.svelte';
+    import Footer from '../components/Footer.svelte';
 
 	export let data;
 
@@ -10,7 +10,7 @@
 
 <main>
 
-    <Header />
+    <Header text={data.header} />
 
     <ol>
         {#each data.pages as project}
@@ -27,7 +27,7 @@
         {/each}
     </ol>
 
-    <Imprint />
+    <Footer text={data.footer} />
 
 </main>
 

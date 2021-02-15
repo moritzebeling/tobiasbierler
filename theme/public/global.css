@@ -190,3 +190,11 @@ li > a {
 .nowrap {
 	white-space: nowrap;
 }
+
+.text p + p,
+.text h1 + p,
+.text p + h1,
+.text p + h2,
+.text p + h3 {
+	margin-top: 1rem;
+}

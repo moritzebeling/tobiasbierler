@@ -4,6 +4,8 @@ define( 'DS' , '/' );
 
 require_once 'helpers.php';
 
+require_once 'vendors/parsedown/Parsedown.php';
+
 require_once 'Src/Assets.php';
 require_once 'Src/Content.php';
 require_once 'Src/Directory.php';

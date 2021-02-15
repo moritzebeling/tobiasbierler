@@ -37,6 +37,14 @@ class Page {
 
         }
 
+        foreach( preg_grep('~\.(md)$~', scandir( $this->path )) as $file ){
+
+            $content = file_get_contents( $this->path . DS . $file );
+            $filename = explode('.',$file)[0];
+            $this->data[ $filename ] = (new Parsedown )->setBreaksEnabled(true)->text( $content );
+
+        }
+
         return $this->data;
     }
 

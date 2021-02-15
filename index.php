@@ -21,6 +21,7 @@ $themeDirectory = '/theme/public';
 
     <script>
         window.pageData = <?= json_encode( $content ); ?>;
+		console.log( window.pageData );
     </script>
 
 	<script defer src='<?= $themeDirectory ?>/build/bundle.js'></script>
