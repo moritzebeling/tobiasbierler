@@ -27,7 +27,7 @@
 
                         <p>
                             {#if project.hasOwnProperty('subtitle')}
-                                <span>{project.title}</span>,
+                                <span>{project.subtitle}</span>,
                             {/if}
                             <span class="year">{project.year}</span>
                         </p>

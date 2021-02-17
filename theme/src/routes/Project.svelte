@@ -19,9 +19,9 @@
 
     <header>
 
-        <p class="i num">{project.n}</p>
+        <p class="i num">{project.n}:</p>
 
-        <p class="index num">Bild {index + 1} von {project.images.length}</p>
+        <p class="index num">{index + 1}/{project.images.length}</p>
 
         {#if project.images[index]}
             <h2>{project.images[index].alt}</h2>
@@ -30,7 +30,7 @@
     </header>
 
     <footer>
-        <Link to="/">Zurück</Link>
+        <Link to="/">Index</Link>
     </footer>
 
     <section>
@@ -60,9 +60,6 @@
         display: inline;
     }
 
-    .index:after {
-        content: ':';
-    }
     .i {
         min-width: 1.6em;
         display: inline-block;

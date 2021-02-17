@@ -31,7 +31,7 @@ $themeDirectory = '/theme/public';
 	<link rel="icon" type="image/png" href="/theme/images/tobiasbierler-256.png" sizes="256x256">
 	<link rel="icon" type="image/png" href="/theme/images/tobiasbierler-512.png" sizes="512x512">
 	<link rel="icon" type="image/png" href="/theme/images/tobiasbierler-1024.png" sizes="1024x1024">
-	<meta name="og:image" content="<?= $content['url'] ?>/theme/images/tobiasbierler-1024.png"/>
+	<meta name="og:image" content="<?= $content['website'] ?>/theme/images/tobiasbierler-1024.png"/>
 
 	<?php if( isset( $content['keywords'] ) ): ?>
 		<meta name="keywords" content="<?= implode(', ',$content['keywords']) ?>"/>
@@ -42,8 +42,8 @@ $themeDirectory = '/theme/public';
 		<meta name="description" content="<?= $content['description'] ?>"/>
 	<?php endif ?>
 
-	<meta name="url" content="<?= $content['url'] ?>">
-	<meta name="og:url" content="<?= $content['url'] ?>"/>
+	<meta name="url" content="<?= $content['website'] ?>">
+	<meta name="og:url" content="<?= $content['website'] ?>"/>
 
 	<meta name="copyright" content="Tobias Bierler">
 	<meta name="generator" content="Moritz Ebeling">
