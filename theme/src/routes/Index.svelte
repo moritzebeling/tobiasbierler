@@ -68,5 +68,8 @@
         display: inline;
     }
 
+    /* li > :global( a:hover ){
+        background-color: #eee;
+    } */
 
 </style>

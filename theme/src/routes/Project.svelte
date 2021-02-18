@@ -19,7 +19,7 @@
 
     <header>
 
-        <p class="i num">{project.n}:</p>
+        <p class="i num">{project.n}</p>
 
         <p class="index num">{index + 1}/{project.images.length}</p>
 
@@ -60,9 +60,9 @@
         display: inline;
     }
 
-    .i {
-        min-width: 1.6em;
+    .i, .index {
         display: inline-block;
+        margin-right: 0.3em;
     }
 
     section {
@@ -78,8 +78,8 @@
     }
 
     .square {
-        width: 85vh;
-        height: 85vh;
+        width: 100vh;
+        height: 100vh;
         padding: 1rem 1rem 3rem;
         box-sizing: border-box;
     }
@@ -87,8 +87,8 @@
     @media all and (orientation: portrait) {
         .square {
             padding: 1rem;
-            width: 85vw;
-            height: 85vw;
+            width: 100vw;
+            height: 100vw;
         }
     }
 
@@ -101,20 +101,20 @@
 
     footer {
         display: none;
+        position: fixed;
+        z-index: 60;
+        bottom: 0;
+        right: 0;
+        padding: 1rem;
     }
-    @media all and (min-width: 1000px){
-        footer {
-            display: block;
-            position: fixed;
-            z-index: 60;
-            bottom: 0;
-            right: 0;
-            padding: 1rem;
-        }
-        footer :global( a ){
+    footer :global( a ){
 	        text-decoration: underline;
         }
+    @media all and (min-width: 800px){
+        footer {
+            display: block;
 
+        }
     }
 
 </style>
