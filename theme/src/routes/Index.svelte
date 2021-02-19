@@ -40,6 +40,8 @@
 
     <Footer text={data.footer} />
 
+    <Link to="impressum">Impressum</Link>
+
 </main>
 
 <style>
