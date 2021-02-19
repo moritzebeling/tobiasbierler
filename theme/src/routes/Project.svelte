@@ -107,9 +107,6 @@
         right: 0;
         padding: 1rem;
     }
-    footer :global( a ){
-	        text-decoration: underline;
-        }
     @media all and (min-width: 800px){
         footer {
             display: block;

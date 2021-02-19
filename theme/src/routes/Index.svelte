@@ -23,7 +23,7 @@
                 <Link to={project.url}>
                     <article>
 
-                        <span class="i num">{num(i, data.pages.length)}</span><h2>{project.title}</h2>:
+                        <span class="i num">{num(i, data.pages.length)}</span><h2>{project.title}</h2>
 
                         <p>
                             {#if project.hasOwnProperty('subtitle')}
@@ -45,11 +45,19 @@
 <style>
 
     main {
-        margin: 1rem;
+        padding: 1rem;
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
     }
 
+    ol {
+        font-size: 1.4rem;
+        flex: 1;
+    }
     li {
         padding-left: 1.9em;
+        margin: 0.5em 0;
     }
     .i {
         min-width: 1.9em;
@@ -61,10 +69,9 @@
 
     }
     article h2 {
-        text-decoration: underline;
+        /* text-decoration: underline; */
     }
-    article h2,
-    article p {
+    article h2 {
         display: inline;
     }
 
