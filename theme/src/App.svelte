@@ -1,7 +1,7 @@
 <script>
 
 	import { Router, Link, Route } from "svelte-routing";
-	import {getProject} from './utilities/getProject.js';
+	import { getProject } from './utilities/getProject.js';
 
 	import Index from "./routes/Index.svelte";
 	import Project from "./routes/Project.svelte";

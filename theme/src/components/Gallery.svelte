@@ -1,14 +1,15 @@
 <script>
 
     import { onMount, createEventDispatcher } from "svelte";
-    import 'swiper/swiper-bundle.css';
     import Swiper from 'swiper';
+    import 'swiper/swiper-bundle.css';
 
 	export let images;
     let index = 0;
 
 	let container;
     let swiper;
+
     const dispatch = createEventDispatcher();
 
     function slideHook( n, max ){

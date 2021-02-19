@@ -1,21 +1,17 @@
 <script>
 
 	import { Link } from "svelte-routing";
-    import Header from '../components/Header.svelte';
-    import Footer from '../components/Footer.svelte';
+    import { num } from '../utilities/getProject.js';
 
 	export let data;
-
-    function num( i, l ){
-        let n = `00${l-i}`;
-        return n.substr(-2);
-    }
 
 </script>
 
 <main>
 
-    <Header text={data.header} />
+    <header class="text">
+        {@html data.header}
+    </header>
 
     <ol>
         {#each data.pages as project, i}
@@ -38,7 +34,9 @@
         {/each}
     </ol>
 
-    <Footer text={data.footer} />
+    <footer class="text">
+        {@html data.footer}
+    </footer>
 
     <Link to="impressum">Impressum</Link>
 
@@ -67,18 +65,8 @@
         display: inline-block;
     }
 
-    article {
-
-    }
-    article h2 {
-        /* text-decoration: underline; */
-    }
     article h2 {
         display: inline;
     }
-
-    /* li > :global( a:hover ){
-        background-color: #eee;
-    } */
 
 </style>

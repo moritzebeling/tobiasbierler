@@ -10,10 +10,7 @@
     <Link to="/">Index</Link>
 
     <aside class="text">
-
-
         {@html text}
-
     </aside>
 
 </main>

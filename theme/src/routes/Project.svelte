@@ -5,7 +5,6 @@
     import Gallery from '../components/Gallery.svelte';
 
     export let project;
-    console.log( project );
 
     let index;
 
@@ -18,15 +17,11 @@
 <article>
 
     <header>
-
         <p class="i num">{project.n}</p>
-
         <p class="index num">{index + 1}/{project.images.length}</p>
-
         {#if project.images[index]}
             <h2>{project.images[index].alt}</h2>
         {/if}
-
     </header>
 
     <footer>
@@ -56,7 +51,7 @@
         z-index: 50;
     }
 
-    h1, h2, p {
+    h2, p {
         display: inline;
     }
 

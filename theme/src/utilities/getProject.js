@@ -1,4 +1,4 @@
-function num( i, l ){
+export function num( i, l ){
     let n = `00${l-i}`;
     return n.substr(-2);
 }
