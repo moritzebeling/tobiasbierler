@@ -1,0 +1,52 @@
+@import 'reset';
+
+// @font-face {
+// 	font-family: 'Sans';
+// 	src: url('/fonts/Inter-Light.woff2') format('woff2'),
+// 		 url('/fonts/Inter-Light.woff') format('woff');
+// 	font-weight: normal;
+// 	font-style: normal;
+// }
+
+@import 'mixins';
+
+html {
+	font-size: 13px;
+}
+
+body {
+	background-color: $white;
+	color: $black;
+	@include font;
+	@include small;
+}
+
+.lazyload,
+.lazyloading {
+	opacity: 0;
+}
+.lazyloaded {
+	opacity: 1;
+	transition: opacity 300ms;
+}
+
+li > a {
+	display: block;
+}
+
+.num {
+	@include tnum;
+}
+.nowrap {
+	@include nowrap;
+}
+
+.text {
+	p + p,
+	h1 + p,
+	p + h1,
+	p + h2,
+	p + h3 {
+		margin-top: 1rem;
+	}
+}

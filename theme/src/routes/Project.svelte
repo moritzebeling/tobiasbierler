@@ -40,15 +40,11 @@
 
 </article>
 
-<style>
+<style lang="scss">
 
     header {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 1rem;
-        z-index: 50;
+        @include bottom;
+        @include padding;
     }
 
     h2, p {
@@ -70,43 +66,37 @@
     figure {
         position: relative;
         height: 100vh;
+        box-sizing: border-box;
     }
 
     .square {
         width: 100vh;
         height: 100vh;
-        padding: 1rem 1rem 3rem;
-        box-sizing: border-box;
+        @include padding;
+        padding-bottom: unit(3);
     }
 
     @media all and (orientation: portrait) {
         .square {
-            padding: 1rem;
+            @include padding;
             width: 100vw;
             height: 100vw;
         }
     }
 
     :global( img ) {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: left top;
+        @include fitImage;
     }
 
     footer {
+        @include bottom;
+        @include padding;
         display: none;
-        position: fixed;
-        z-index: 60;
-        bottom: 0;
         right: 0;
-        padding: 1rem;
-    }
-    @media all and (min-width: 800px){
-        footer {
+        @media all and (min-width: 800px){
             display: block;
-
         }
     }
+
 
 </style>

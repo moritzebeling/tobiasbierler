@@ -24,7 +24,7 @@ time, mark, audio, video, noscript {
 *::after {
 	box-sizing: inherit;
 }
-html {
+html, figure, main {
 	box-sizing: border-box;
 }
 
@@ -155,46 +155,4 @@ table {
 }
 :focus {
   outline: 0;
-}
-
-html {
-	font-size: 13px;
-}
-body {
-	font-family: "Arial", sans-serif;
-	line-height: 1.2;
-	letter-spacing: 0.02em;
-}
-
-li > a {
-	display: block;
-}
-
-.lazyload,
-.lazyloading {
-	opacity: 0;
-}
-.lazyloaded {
-	opacity: 1;
-	transition: opacity 300ms;
-}
-
-.num {
-	letter-spacing: 0.02em;
-	white-space: nowrap;
-	font-variant-numeric: tabular-nums;
-	-moz-font-feature-settings: "tnum";
-	-webkit-font-feature-settings: "tnum";
-	font-feature-settings: "tnum";
-}
-.nowrap {
-	white-space: nowrap;
-}
-
-.text p + p,
-.text h1 + p,
-.text p + h1,
-.text p + h2,
-.text p + h3 {
-	margin-top: 1rem;
 }

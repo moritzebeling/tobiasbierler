@@ -75,7 +75,7 @@
 
 </div>
 
-<style>
+<style lang="scss">
 
 	.swiper-container {
         height: 100%;

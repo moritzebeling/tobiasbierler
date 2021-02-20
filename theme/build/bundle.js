@@ -8921,7 +8921,7 @@ var app = (function () {
 			c: function create() {
 				h2 = element("h2");
 				t = text(t_value);
-				attr_dev(h2, "class", "svelte-o2l06t");
+				attr_dev(h2, "class", "svelte-1k1sdsi");
 				add_location(h2, file$4, 22, 12, 470);
 			},
 			m: function mount(target, anchor) {
@@ -8995,10 +8995,10 @@ var app = (function () {
 				figure = element("figure");
 				div = element("div");
 				create_component(img.$$.fragment);
-				attr_dev(div, "class", "square svelte-o2l06t");
+				attr_dev(div, "class", "square svelte-1k1sdsi");
 				add_location(div, file$4, 33, 16, 755);
 				attr_dev(figure, "title", figure_title_value = /*image*/ ctx[3].alt);
-				attr_dev(figure, "class", "svelte-o2l06t");
+				attr_dev(figure, "class", "svelte-1k1sdsi");
 				add_location(figure, file$4, 32, 12, 710);
 			},
 			m: function mount(target, anchor) {
@@ -9111,15 +9111,15 @@ var app = (function () {
 				t7 = space();
 				section = element("section");
 				create_component(gallery.$$.fragment);
-				attr_dev(p0, "class", "i num svelte-o2l06t");
+				attr_dev(p0, "class", "i num svelte-1k1sdsi");
 				add_location(p0, file$4, 19, 8, 320);
-				attr_dev(p1, "class", "index num svelte-o2l06t");
+				attr_dev(p1, "class", "index num svelte-1k1sdsi");
 				add_location(p1, file$4, 20, 8, 361);
-				attr_dev(header, "class", "svelte-o2l06t");
+				attr_dev(header, "class", "svelte-1k1sdsi");
 				add_location(header, file$4, 18, 4, 303);
-				attr_dev(footer, "class", "svelte-o2l06t");
+				attr_dev(footer, "class", "svelte-1k1sdsi");
 				add_location(footer, file$4, 26, 4, 540);
-				attr_dev(section, "class", "svelte-o2l06t");
+				attr_dev(section, "class", "svelte-1k1sdsi");
 				add_location(section, file$4, 30, 4, 602);
 				add_location(article, file$4, 16, 0, 288);
 			},

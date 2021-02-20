@@ -15,13 +15,13 @@
 
 </main>
 
-<style>
+<style lang="scss">
 
     main {
-        margin: 1rem;
+        @include margin;
     }
     aside {
-        margin-top: 1rem;
+        margin-top: unit();
     }
 
 </style>

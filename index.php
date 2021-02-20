@@ -3,8 +3,6 @@
 require_once 'run/start.php';
 $content = ( new Content() )->toArray();
 
-$themeDirectory = '/theme/public';
-
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -16,15 +14,14 @@ $themeDirectory = '/theme/public';
 	<meta name="og:site_name" content="<?= $content['title'] ?>"/>
 	<meta name="og:title" content="<?= $content['title'] ?>"/>
 
-	<link rel='stylesheet' href='<?= $themeDirectory ?>/global.css'>
-    <link rel='stylesheet' href='<?= $themeDirectory ?>/build/bundle.css'>
+    <link rel='stylesheet' href='/theme/build/bundle.css'>
 
     <script>
         window.pageData = <?= json_encode( $content ); ?>;
 		console.log( window.pageData );
     </script>
 
-	<script defer src='<?= $themeDirectory ?>/build/bundle.js'></script>
+	<script defer src='/theme/build/bundle.js'></script>
 
 	<link rel="icon" type="image/svg+xml" href="/theme/images/tobiasbierler.svg">
 	<link rel="icon" type="image/png" href="/theme/images/tobiasbierler-128.png" sizes="128x128">

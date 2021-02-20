@@ -9,7 +9,7 @@
 
 <main>
 
-    <header class="text">
+    <header>
         {@html data.header}
     </header>
 
@@ -34,7 +34,7 @@
         {/each}
     </ol>
 
-    <footer class="text">
+    <footer>
         {@html data.footer}
     </footer>
 
@@ -42,23 +42,25 @@
 
 </main>
 
-<style>
+<style lang="scss">
 
     main {
-        padding: 1rem;
+        @include padding;
         display: flex;
         min-height: 100vh;
         flex-direction: column;
     }
 
     ol {
-        font-size: 1.4rem;
+        @include large;
         flex: 1;
     }
+
     li {
         padding-left: 1.9em;
         margin: 0.5em 0;
     }
+
     .i {
         min-width: 1.9em;
         margin-left: -1.9em;

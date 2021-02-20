@@ -1,0 +1,63 @@
+/* colors */
+
+$black: #000;
+$white: #fff;
+
+/* spacing */
+
+$unit: 1rem;
+
+@function unit( $factor: 1 ){
+	@return $factor * $unit;
+}
+
+@mixin padding( $factor: 1 ) {
+	padding: $factor * $unit;
+}
+
+@mixin margin( $factor: 1 ) {
+	margin: $factor * $unit;
+}
+
+@mixin bottom {
+	position: fixed;
+	bottom: 0;
+	max-width: 100%;
+	z-index: 10;
+}
+
+@mixin fitImage {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: left top;
+}
+
+/* typography */
+
+@mixin font {
+	letter-spacing: 0.02em;
+	font-family: "Arial", sans-serif;
+}
+
+@mixin small {
+	font-size: 1rem;
+	line-height: 1.2;
+}
+
+@mixin large {
+	font-size: 1.4rem;
+	line-height: 1.2;
+}
+
+@mixin tnum {
+	white-space: nowrap;
+	font-variant-numeric: tabular-nums;
+	-moz-font-feature-settings: "tnum";
+	-webkit-font-feature-settings: "tnum";
+	font-feature-settings: "tnum";
+}
+
+@mixin nowrap {
+	white-space: nowrap;
+}
