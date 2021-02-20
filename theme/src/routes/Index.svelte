@@ -52,18 +52,21 @@
     }
 
     ol {
+        margin: unit( 0.25 ) 0;
         @include large;
         flex: 1;
     }
 
+    $indent: 1.7em;
+
     li {
-        padding-left: 1.9em;
-        margin: 0.5em 0;
+        padding-left: $indent;
+        margin: unit( 0.5 ) 0;
     }
 
     .i {
-        min-width: 1.9em;
-        margin-left: -1.9em;
+        min-width: $indent;
+        margin-left: -$indent;
         display: inline-block;
     }
 
