@@ -18,7 +18,6 @@ $content = ( new Content() )->toArray();
 
     <script>
         window.pageData = <?= json_encode( $content ); ?>;
-		console.log( window.pageData );
     </script>
 
 	<script defer src='/theme/build/bundle.js'></script>

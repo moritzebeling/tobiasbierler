@@ -10,6 +10,9 @@
 	export let data;
 	export let url = "";
 
+	console.log('Welcome. This is the website of Tobias Bierler.');
+	console.log('It was made by Moritz Ebeling. https://moritzebeling.com');
+
 </script>
 
 <Router url="{url}">
