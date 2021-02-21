@@ -2,6 +2,7 @@
 
 	import { Link } from "svelte-routing";
     import { num } from '../utilities/getProject.js';
+    import Footer from '../components/Footer.svelte';
 
 	export let data;
 
@@ -34,11 +35,9 @@
         {/each}
     </ol>
 
-    <footer>
-        {@html data.footer}
-    </footer>
-
-    <Link to="impressum">Impressum</Link>
+    <Footer contact={data.contact}>
+        <Link to="impressum">Impressum</Link>
+    </Footer>
 
 </main>
 
@@ -52,7 +51,7 @@
     }
 
     ol {
-        margin: unit( 0.25 ) 0;
+        margin: unit( 1 ) 0;
         @include large;
         flex: 1;
     }
@@ -61,7 +60,9 @@
 
     li {
         padding-left: $indent;
-        margin: unit( 0.5 ) 0;
+        + li {
+            margin-top: unit( 0.5 );
+        }
     }
 
     .i {

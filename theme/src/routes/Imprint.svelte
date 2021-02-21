@@ -1,27 +1,36 @@
 <script>
 
     import { Link } from "svelte-routing";
-    export let text;
+    import Footer from '../components/Footer.svelte';
+
+    export let data;
 
 </script>
 
 <main>
 
-    <Link to="/">Index</Link>
-
     <aside class="text">
-        {@html text}
+        {@html data.imprint}
     </aside>
+
+    <Footer contact={data.contact}>
+        <Link to="/">Index</Link>
+    </Footer>
 
 </main>
 
 <style lang="scss">
 
     main {
-        @include margin;
+        @include padding;
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
     }
+
     aside {
-        margin-top: unit();
+        flex: 1;
+        margin-bottom: 1rem;
     }
 
 </style>

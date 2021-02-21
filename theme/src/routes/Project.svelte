@@ -58,6 +58,7 @@
 
     section {
         height: 100vh;
+        height: var(--app-height);
         width: 100vw;
         display: flex;
         flex-direction: column;
@@ -66,12 +67,14 @@
     figure {
         position: relative;
         height: 100vh;
+        height: var(--app-height);
         box-sizing: border-box;
     }
 
     .square {
         width: 100vh;
         height: 100vh;
+        height: var(--app-height);
         @include padding;
         padding-bottom: unit(3);
     }
