@@ -42,11 +42,21 @@ li > a {
 }
 
 .text {
-	p + p,
-	h1 + p,
-	p + h1,
-	p + h2,
-	p + h3 {
-		margin-top: 1rem;
+	h1,
+	h2,
+	h3,
+	h4,
+	p {
+		+ h1,
+		+ h2,
+		+ h3,
+		+ h4 {
+			margin-top: 1rem;
+		}
+	}
+	p {
+		+ p {
+			margin-top: 1rem;
+		}
 	}
 }
